@@ -1,2 +1,2 @@
 # YouCanRank
-website
+website.
