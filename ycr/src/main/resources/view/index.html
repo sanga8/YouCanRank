@@ -15,7 +15,7 @@
   <body>
         <header>
           <nav class="navbar navbar-dark sticky-top">
-              <div class="menu col-sm-1" onclick="myFunction(this)">
+              <div class="menu col-sm-1" onclick="myFunction()" id="bars">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -36,7 +36,15 @@
             </nav>
         </header>
 
-        <div id="corps">
+        <div id="Sidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="myFunction()">&times;</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div id="corps" class="no">
 
         </div>
 
