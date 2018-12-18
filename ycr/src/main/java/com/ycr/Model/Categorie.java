@@ -11,8 +11,9 @@ import javax.persistence.Id;
 @Entity
 public class Categorie {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
     private String type;
     private String couleur;
 
