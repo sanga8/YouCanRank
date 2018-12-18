@@ -109,4 +109,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
+INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('1', 'sport', 'rouge');
+INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('2', 'politique', 'bleu');
+INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('3', 'jeunesse', 'orange');
+INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('4', 'sex', 'rose');
