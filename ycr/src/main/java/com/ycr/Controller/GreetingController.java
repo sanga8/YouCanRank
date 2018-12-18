@@ -1,4 +1,4 @@
-package com.ycr;
+package com.ycr.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
