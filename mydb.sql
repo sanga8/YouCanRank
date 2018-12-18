@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `myrank`.`Question` (
   `id` INT NOT NULL,
   `titre` VARCHAR(25) NOT NULL,
   `point` INT NULL,
-  `age_limit` INT NULL,
   `Categorie_id` INT NOT NULL,
   PRIMARY KEY (`id`, `Categorie_id`),
   INDEX `fk_Question_Categorie1_idx` (`Categorie_id` ASC) VISIBLE,
@@ -109,3 +108,5 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
