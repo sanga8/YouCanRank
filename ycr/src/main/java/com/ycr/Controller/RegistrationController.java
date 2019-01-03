@@ -20,8 +20,13 @@ public class RegistrationController {
   @Autowired
   private UserDao userDao;
 
+  @RequestMapping(value="/register", method=RequestMethod.GET)
+  public String getRegisterForm() {
+	  return "register";
+  }
+
   @RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String Login(@ModelAttribute(name="registerForm") User user, Model model) {
+	public String Register(@ModelAttribute(name="registerForm") User user, Model model) {
 		String pseudo = user.getPseudo();
 		String password = user.getPassword();
 

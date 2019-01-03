@@ -16,7 +16,7 @@ public interface UserDao extends CrudRepository<User,Integer> {
 	@Query("SELECT username FROM utilisateur where id=:id")
 	List<User> takeBdd(@Param ("id") int id);
 	*/
-	
+
 	@Query("SELECT password FROM User WHERE pseudo = :pseudo ")
 	String authentificationUser(@Param ("pseudo") String pseudo);
 	

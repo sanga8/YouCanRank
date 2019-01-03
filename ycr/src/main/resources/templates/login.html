@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
-
 
         <html>
 
@@ -13,35 +13,18 @@
         </head>
 
         <body>
-            <form:form id="loginForm" modelAttribute="login" method="post" th:action="@{/login}" th:object="${loginForm}" >
-                <table align="center">
-                    <tr>
+            <form method="post" th:action="@{/login}" th:object="${loginForm}">
+
+                <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">
+                <input class="un" type="text" align="center" placeholder="password" name="password"> 
+                <button type="submit" class="submit" align="center">Login</button>
+
                         <td>
-                            <form:label path="pseudo">Pseudo: </form:label>
+                            <a href="home.html">Home</a>
                         </td>
-                        <td>
-                            <form:input path="pseudo" name="pseudo" id="pseudo" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="password">Password:</form:label>
-                        </td>
-                        <td>
-                            <form:password path="password" name="password" id="password" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="left">
-                            <form:button  type="submit" class="submit" id="login" name="login">Login</form:button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="home.html">Home</a>
-                        </td>
-                    </tr>
-                </table>
-            </form:form>
+
+            </form>>
+
         </body>
 
         </html>
