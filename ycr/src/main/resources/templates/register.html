@@ -2,29 +2,32 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
 
-        <html>
+        <head th:insert="fragments/header.html :: head"> </head>
 
-        <head>
-
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-            <title>Registration</title>
-
-        </head>
+            
 
         <body>
-            <form method="post" th:action="@{/register}" th:object="${registerForm}">
+            <header th:insert="fragments/header.html :: header"> </header>
 
-                <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">
-                <input class="un" type="text" align="center" placeholder="password" name="password"> 
-                <button type="submit" class="submit" align="center">Register</button>
+                <div th:insert="fragments/header.html :: div.sidenav"></div>
+        
+                <div id="corps" class="no">
+                    <!--code here-->
+                    <form method="post" th:action="@{/register}" th:object="${registerForm}">
 
-                        <td>
-                            <a href="index">Home</a>
-                        </td>
-
-            </form>>
+                        <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">
+                        <input class="un" type="text" align="center" placeholder="password" name="password"> 
+                        <button type="submit" class="submit" align="center">Register</button>
+        
+                                <td>
+                                    <a href="index">Home</a>
+                                </td>
+        
+                    </form>>
+                </div>
+            
+            <footer th:insert="fragments/header.html :: footer"> </footer>
 
         </body>
 
-        </html>
+</html>
