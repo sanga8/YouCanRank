@@ -7,6 +7,6 @@ USE `users` ;
 CREATE TABLE IF NOT EXISTS `users`.`User` (
   `id` INT NOT NULL,
   `pseudo` VARCHAR(100) NOT NULL,
-  `couleur` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
