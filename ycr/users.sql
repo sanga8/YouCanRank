@@ -10,5 +10,3 @@ CREATE TABLE IF NOT EXISTS `users`.`User` (
   password VARCHAR(100) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
-
-INSERT INTO User (pseudo, password) VALUES ("ahah","gg")

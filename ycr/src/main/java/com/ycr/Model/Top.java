@@ -7,7 +7,8 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Question {
+public class Top{
+	
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;

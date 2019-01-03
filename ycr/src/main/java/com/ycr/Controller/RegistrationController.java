@@ -29,6 +29,6 @@ public class RegistrationController {
 
 		userDao.insertBdd(pseudo,password);
 		
-		return "home";
+		return "index";
 	}
 }

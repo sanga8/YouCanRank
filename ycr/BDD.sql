@@ -69,13 +69,11 @@ ENGINE = InnoDB;
 -- Table `myrank`.`Utilisateur`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myrank`.`Utilisateur` (
-  `id` INT NOT NULL,
-  `prenom` VARCHAR(45) NOT NULL,
-  `nom` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `mdp` VARCHAR(45) NOT NULL,
-  `telephone` INT NOT NULL,
-  `date de naissance` DATETIME NOT NULL,
+  id int NOT NULL AUTO_INCREMENT,
+  pseudo VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
