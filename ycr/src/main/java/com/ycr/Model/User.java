@@ -14,7 +14,6 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private String pseudo;
-	private String email;
 	private String password;
 
 	/*
@@ -32,16 +31,6 @@ public class User {
 	public void setPseudo(String pseudo)
 	{
 		this.pseudo = pseudo;
-	}
-
-	public String getEmail()
-	{
-		return this.email;
-	}
-
-	public void setEmail(String email)
-	{
-		this.email = email;
 	}
 
 	public String getPassword()

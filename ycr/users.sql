@@ -5,8 +5,10 @@ USE `users` ;
 -- Table `myrank`.`Categorie`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users`.`User` (
-  `id` INT NOT NULL,
-  `pseudo` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`))
+  id int NOT NULL AUTO_INCREMENT,
+  pseudo VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id))
 ENGINE = InnoDB;
+
+INSERT INTO User (pseudo, password) VALUES ("ahah","gg")
