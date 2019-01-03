@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Application",
+            "request": "launch",
+            "mainClass": "com.ycr.Application",
+            "projectName": "ycr"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.ycr.Launch.DemoApplication",
+            "projectName": "ycr"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DemoApplication",
             "request": "launch",
             "cwd": "${workspaceFolder}",

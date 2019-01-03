@@ -1,3 +1,5 @@
+/*
+
 package com.ycr.Controller;
 
 import org.springframework.stereotype.Controller;
@@ -15,3 +17,5 @@ public class GreetingController {
     }
 
 }
+
+*/
