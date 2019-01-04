@@ -31,10 +31,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `myrank`.`Question`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `myrank`.`Question` (
-  `id` INT NOT NULL,
-  `titre` VARCHAR(25) NOT NULL,
-  `point` INT NULL,
+CREATE TABLE IF NOT EXISTS `myrank`.`question` (
+id int NOT NULL AUTO_INCREMENT,
+  titre VARCHAR(25) NOT NULL,
+  point INT NULL,
   `Categorie_id` INT NOT NULL,
   PRIMARY KEY (`id`, `Categorie_id`),
   INDEX `fk_Question_Categorie1_idx` (`Categorie_id` ASC) VISIBLE,
@@ -68,13 +68,18 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `myrank`.`Utilisateur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `myrank`.`Utilisateur` (
+CREATE TABLE IF NOT EXISTS `myrank`.`user` (
   id int NOT NULL AUTO_INCREMENT,
   pseudo VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
-  PRIMARY KEY (`id`))
+
+CREATE TABLE IF NOT EXISTS `myrank`.`top` (
+  id int NOT NULL AUTO_INCREMENT,
+  titre VARCHAR(25) NOT NULL,
+  point INT NOT NULL,
+  PRIMARY KEY (id))
 ENGINE = InnoDB;
 
 

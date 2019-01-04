@@ -1,30 +1,32 @@
-
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+    <html  xmlns:th="http://www.thymeleaf.org">
+        
+                <head th:insert="fragments/header.html :: head"> </head>
+        
+                    
+        
+                <body>
+                    <header th:insert="fragments/header.html :: header"> </header>
+        
+                        <div th:insert="fragments/header.html :: div.sidenav"></div>
+                
+                        <div id="corps" class="no">
+                            <!--code here-->
+                            <form method="post" th:action="@{/create}" th:object="${createForm}">
 
-        <html>
-
-        <head>
-
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-            <title>Create</title>
-
-        </head>
-
-        <body>
-            <form method="post" th:action="@{/create}" th:object="${createForm}">
-
-                <input class="un" type="text" align="center" placeholder="title" name="title">
-                <input class="un" type="text" align="center" placeholder="points" name="points"> 
-                <button type="submit" class="submit" align="center">Create</button>
-
-                        <td>
-                            <a href="index">Home</a>
-                        </td>
-
-            </form>>
-
-        </body>
-
-        </html>
+                                <input class="un" type="text" align="center" placeholder="titre" name="titre">
+                                <input class="un" type="text" align="center" placeholder="point" name="point"> 
+                                <button type="submit" class="submit" align="center">Create</button>
+                
+                                        <td>
+                                            <a href="index">Home</a>
+                                        </td>
+                
+                            </form>>
+                        </div>
+                    
+                    <footer th:insert="fragments/header.html :: footer"> </footer>
+        
+                </body>
+        
+    </html>

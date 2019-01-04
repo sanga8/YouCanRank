@@ -15,14 +15,7 @@ public class User {
 	private Integer id;
 	private String pseudo;
 	private String password;
-
-	/*
-	public User(int id, String pseudo, String password) {
-		this.id = id;
-		this.pseudo = pseudo;
-		this.password = password;
-	}
-    */
+	
 	public String getPseudo()
 	{
 		return this.pseudo;
