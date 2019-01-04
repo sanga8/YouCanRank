@@ -4,7 +4,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.ycr.Model.Top;
-import com.ycr.Model.User;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,9 +11,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface TopDao extends CrudRepository<User,Integer> {
-	List<Top> findAll(Sort sort);
-    
+public interface TopDao extends CrudRepository<Top,Integer> {
+	//List<Top> findAll(Sort sort);
+	List<Top> findAll();
+	
+	Top getTopById(Integer id);
+
 	@Modifying
 	@Query(value ="INSERT INTO top (titre, point) VALUES (:titre, :point)", nativeQuery =true)
 	@Transactional

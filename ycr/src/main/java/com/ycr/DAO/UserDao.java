@@ -9,8 +9,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface UserDao extends CrudRepository<User,Integer> {
-	List<User> findByPseudo (String pseudo);
-	List<User> findAll();
+	//List<User> findByPseudo (String pseudo);
+	//List<User> findAll();
 
 	/*
 	@Query("SELECT username FROM utilisateur where id=:id")
