@@ -18,4 +18,7 @@ public interface TopDao extends CrudRepository<User,Integer> {
 	@Query(value ="INSERT INTO top (titre, point) VALUES (:titre, :point)", nativeQuery =true)
 	@Transactional
 	void insertBdd(@Param ("titre") String string, @Param ("point") Integer string2);
+
+	@Query(value = "SELECT * FROM top ORDER BY point DESC",nativeQuery =true)
+
 }
