@@ -25,7 +25,7 @@ private TopDao topDao;
 		
 		model.addAttribute("top", topDao.findFirst10ByOrderByPointDesc());
 		//model.addAttribute("top", topDao.findAll(new Sort(Sort.Direction.DESC, "point")));
-
+		
 		return "index";
 	}
 	
