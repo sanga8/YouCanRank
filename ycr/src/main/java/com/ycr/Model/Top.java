@@ -12,7 +12,8 @@ public class Top{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-    private String titre;
+	private String titre;
+	private String link;
     private Integer point;
 
 
@@ -44,6 +45,16 @@ public class Top{
 	public void setPoint(Integer point)
 	{
 		this.point = point;
+	}
+
+	public String getLink()
+	{
+		return this.link;
+	}
+
+	public void setLink(String link)
+	{
+		this.link = link;
 	}
     
 }

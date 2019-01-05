@@ -22,8 +22,9 @@ public class TopController {
 		
 		String titre = top.getTitre();
 		Integer point = top.getPoint();
+		String link = top.getLink();
 
-		topDao.insertBdd(titre,point);
+		topDao.insertBdd(titre,point,link);
 		
 		return "index";
 	}
