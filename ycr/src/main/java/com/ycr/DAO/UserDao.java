@@ -1,6 +1,8 @@
 package com.ycr.DAO;
 
 import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 import com.ycr.Model.User;
 import org.springframework.data.jpa.repository.Modifying;
@@ -17,6 +19,13 @@ public interface UserDao extends CrudRepository<User,Integer> {
 	List<User> takeBdd(@Param ("id") int id);
 	*/
 
+
+
+
+
+	
+	Optional<User> findByPseudo(String pseudo);
+
 	@Query("SELECT password FROM User WHERE pseudo = :pseudo ")
 	String authentificationUser(@Param ("pseudo") String pseudo);
 	
@@ -24,4 +33,5 @@ public interface UserDao extends CrudRepository<User,Integer> {
 	@Query(value ="INSERT INTO User (pseudo, password) VALUES (:pseudo, :password)", nativeQuery =true)
 	@Transactional
 	void insertBdd(@Param ("pseudo") String string, @Param ("password") String string2);
+
 }

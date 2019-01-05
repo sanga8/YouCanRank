@@ -12,6 +12,7 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
+                            <p th:if="${loginError}" class="error">Wrong user or password</p>
                             <form method="post" th:action="@{/login}" th:object="${loginForm}">
 
                                 <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">

@@ -20,6 +20,13 @@ public class LoginController {
 		return "login";
 	}
 
+	// Login form with error
+	@RequestMapping("/login-error")
+	public String loginError(Model model) {
+	  model.addAttribute("loginError", true);
+	  return "login";
+	}
+
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String Login(@ModelAttribute(name="loginForm") User user, Model model) {
 		String pseudo = user.getPseudo();

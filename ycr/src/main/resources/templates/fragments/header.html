@@ -28,7 +28,14 @@
                     </form>
                   </div>
                   <div class="create col-sm-1">
-                    <a href="create">CREATE</a>
+                      <div sec:authorize="isAuthenticated()">
+                          <!--<This content is only shown to authenticated users.>-->
+
+                              <a href="create">CREATE</a>
+                              
+                              <span sec:authentication="name">Bob</span>
+
+                        </div>           
                   </div>
                   <div class="user col-sm-1">
                     <button type="submit"><i class="far fa-user"></i></button>

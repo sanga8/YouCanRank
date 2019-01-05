@@ -19,6 +19,7 @@ public class TopController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String Register(@ModelAttribute(name="createForm") Top top, Model model) {
+		
 		String titre = top.getTitre();
 		Integer point = top.getPoint();
 
