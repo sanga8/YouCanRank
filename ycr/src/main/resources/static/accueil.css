@@ -3,6 +3,7 @@ nav{
     height: 60px;
 }
 
+/*tamrere*/
 body{
     margin: 0px;
     padding: 0px;
@@ -98,4 +99,9 @@ nav .search-container button{
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.box img{
+  width: 150px;
+  height: auto;
 }

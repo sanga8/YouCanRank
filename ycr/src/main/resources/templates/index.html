@@ -9,12 +9,15 @@
         <div th:insert="fragments/header.html :: div.sidenav"></div>
 
         <div id="corps" class="no">
-        <!--<div th:if="${not #lists.isEmpty(top)}"> -->
-          <tr th:each="top : ${top}">
-            <td th:text="${top.titre}"></td>
-            <td th:text="${top.point}"></td>
-          </tr>
-         <!--</div>-->
+        <div th:if="${not #lists.isEmpty(top)}">
+
+          <div class="box" th:each="top : ${top}">
+            <img th:src="@{${top.link}}"/>
+            <div th:text="'Titre '+${top.titre}"></div>
+            <div th:text="'Points '+${top.point}"></div>
+          </div>
+
+        </div>
           <!--code here-->
         </div>
 

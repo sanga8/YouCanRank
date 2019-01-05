@@ -21,8 +21,9 @@ public class TopController {
 	public String Register(@ModelAttribute(name="createForm") Top top, Model model) {
 		String titre = top.getTitre();
 		Integer point = top.getPoint();
+		String link = top.getLink();
 
-		topDao.insertBdd(titre,point);
+		topDao.insertBdd(titre,point,link);
 		
 		return "index";
 	}
