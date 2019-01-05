@@ -11,7 +11,7 @@ function hndlr(response) {
    for (var i = 0; i < response.items.length; i++) {
      var item = response.items[i];
      // in production code, item.htmlTitle should have the HTML entities escaped.
-     document.getElementById("search").value=item.link;
+     document.getElementById("image").value=item.link;
      document.body.style.backgroundImage = "url('"+item.link+"')";
      script.parentNode.removeChild( script );
    }
