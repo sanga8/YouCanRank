@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   id int NOT NULL AUTO_INCREMENT,
   titre VARCHAR(25) NOT NULL,
   point INT NOT NULL,
+  link VARCHAR(2083),
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -111,3 +112,5 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`) VALUES ('4', 'magrosseteub', '130', 'https://i.skyrock.net/4910/60164910/pics/2425401481_1.jpg');
