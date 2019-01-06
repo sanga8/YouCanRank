@@ -29,12 +29,18 @@
                     </form>
                   </div>
                   <div class="create col-sm-1">
+                      <div sec:authorize="isAnonymous()">
+                          <a th:href="@{/login}">Log-in</a>
+                          <a th:href="@{/register}">Register</a>
+                      </div>
+                      
+                      </div>
                       <div sec:authorize="isAuthenticated()">
                           <!--<This content is only shown to authenticated users.>-->
-
+                              <a th:href="@{/logout}">Log out</a>
                               <a href="create">CREATE</a>
                               
-                              <span sec:authentication="name">Bob</span>
+                              <span th:utext="${userName}"></span>
 
                         </div>           
                   </div>

@@ -2,9 +2,7 @@
     <html  xmlns:th="http://www.thymeleaf.org">
         
                 <head th:insert="fragments/header.html :: head"> </head>
-        
-                    
-        
+                
                 <body>
                     <header th:insert="fragments/header.html :: header"> </header>
         
@@ -12,17 +10,23 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                            <p th:if="${loginError}" class="error">Wrong user or password</p>
-                            <form method="post" th:action="@{/login}" th:object="${loginForm}">
+                            <p class="alert alert-danger" role="alert" th:if="${param.error}">
+                                The username or password is incorrect
+                            </p>
+                            <form th:action="@{/login}"method="post" >
+                                <label for="inputUserName" class="sr-only">UserName</label>
+                                <input type="username" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 
-                                <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">
-                                <input class="un" type="text" align="center" placeholder="password" name="password"> 
                                 <button type="submit" class="submit" align="center">Login</button>
-                
+                                
                                         <td>
                                             <a href="index">Home</a>
                                         </td>
-                
+                                        <label>
+                                            <input type="checkbox" name="remember-me" /> Remember me
+                                        </label>
                             </form>>
                         </div>
                     

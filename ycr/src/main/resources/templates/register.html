@@ -13,17 +13,20 @@
         
                 <div id="corps" class="no">
                     <!--code here-->
-                    <form method="post" th:action="@{/register}" th:object="${registerForm}">
+                    <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+                    </div>
+                
+                        <form class="form-horizontal" role="form" method="POST" th:action="@{/register}" th:object="${user}">
 
-                        <input class="un" type="text" align="center" placeholder="pseudo" name="pseudo">
-                        <input class="un" type="text" align="center" placeholder="password" name="password"> 
+                        <input type="text" th:field="*{username}" class="form-control" id="username"placeholder="User Name" required autofocus>
+                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" required>
                         <button type="submit" class="submit" align="center">Register</button>
         
                                 <td>
                                     <a href="index">Home</a>
                                 </td>
         
-                    </form>>
+                       </form>>
                 </div>
             
             <footer th:insert="fragments/header.html :: footer"> </footer>

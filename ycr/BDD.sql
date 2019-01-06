@@ -70,10 +70,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myrank`.`user` (
   id int NOT NULL AUTO_INCREMENT,
-  pseudo VARCHAR(100) NOT NULL,
+  username VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
+  `active` int(11) default NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `persistent_logins`;
+CREATE TABLE  `persistent_logins` (
+  `username` varchar(64) NOT NULL,
+  `series` varchar(64) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `last_used` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`series`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   id int NOT NULL AUTO_INCREMENT,
@@ -112,5 +122,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`) VALUES ('4', 'magrosseteub', '130', 'https://i.skyrock.net/4910/60164910/pics/2425401481_1.jpg');
