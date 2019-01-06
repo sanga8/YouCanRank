@@ -90,7 +90,9 @@ CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   titre VARCHAR(25) NOT NULL,
   point INT NOT NULL,
   link VARCHAR(2083),
-  PRIMARY KEY (id))
+  id_categorie int not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_categorie) REFERENCES Categorie(id) ON DELETE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -122,3 +124,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('1', 'sport', 'vert');
+INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`, `id_categorie`) VALUES ('1', 'mbappe', '12', 'osef', '1');
+
