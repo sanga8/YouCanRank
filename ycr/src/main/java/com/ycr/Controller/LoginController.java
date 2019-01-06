@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ycr.Model.User;
 import com.ycr.DAO.*;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.TestingAuthenticationToken;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+
 @Controller
 public class LoginController {
 
@@ -29,6 +35,8 @@ public class LoginController {
 
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String Login(@ModelAttribute(name="loginForm") User user, Model model) {
+	
+
 		String pseudo = user.getPseudo();
 		String password = user.getPassword();
    		String authentification = userDao.authentificationUser(pseudo);
