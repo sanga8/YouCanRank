@@ -15,7 +15,7 @@ public class Question{
 	private String titre;
 	private String link;
     private Integer point;
-    private Integer top_id;
+    private Integer id_top;
 
 
 	public Integer getId()
@@ -30,12 +30,12 @@ public class Question{
     
     public Integer getTop_id()
 	{
-		return this.top_id;
+		return this.id_top;
 	}
 
-	public void setTop_id(Integer top_id)
+	public void setTop_id(Integer id_top)
 	{
-		this.top_id=top_id;
+		this.id_top=id_top;
 	}
 
 	public String getTitre()

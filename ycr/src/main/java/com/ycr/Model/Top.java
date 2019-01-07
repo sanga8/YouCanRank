@@ -14,7 +14,8 @@ public class Top{
 	private Integer id;
 	private String titre;
 	private String link;
-    private Integer point;
+	private Integer point;
+	private Integer id_categorie;
 
 
 	public Integer getId()
@@ -25,6 +26,16 @@ public class Top{
 	public void setId(Integer id)
 	{
 		this.id = id;
+	}
+
+	public Integer getId_categorie()
+	{
+		return this.id_categorie;
+	}
+
+	public void setId_categorie(Integer id_categorie)
+	{
+		this.id_categorie = id_categorie;
 	}
 
 	public String getTitre()
