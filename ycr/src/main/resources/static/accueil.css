@@ -3,6 +3,15 @@ nav{
     height: 60px;
 }
 
+.question{
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  align-content: flex-start;
+}
+#q2,#q3,#q4,#q5,#q6,#q7,#q8,#q9,#q10,#q11,#q12,#q13{
+  display: none;
+}
 #corps{
   margin-top: 60px;
 }
