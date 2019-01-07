@@ -12,6 +12,7 @@ public class Top{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private String titre;
 	private String link;
 	private Integer point;
