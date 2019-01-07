@@ -21,28 +21,30 @@ public class TopController {
     private TopDao topDao;
 
 	@GetMapping(value="/create")
-	public String toCreate() {
+	public String toCreate(Model model) {
+
+		Question q1 = new Question();
+		model.addAttribute("q1",q1);
+
 		return "create";
 	}
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String Register(@ModelAttribute(name = "createForm") Top top, ArrayList<Question> questions, Model model) {
+	public String Register(Top top, Question q1, Model model) {
 
 		String titre = top.getTitre();
 		String link = top.getLink();
 		Integer id_categorie = top.getId_categorie();
 
-		
-		for (int i=0;i<questions.size();++i){
-		String titreQuestion = questions.get(i).getTitre();
-		String linkQuestion =questions.get(i).getLink();
+		topDao.insertTopBdd(titre,link,id_categorie);
+
+		/*
+		String titreQuestion = q1.getTitre();
+		String linkQuestion  = q1.getLink();
 		Integer id_top= top.getId();
 
-
-		topDao.insertQuestionBdd(titreQuestion, linkQuestion, id_top);	
-		}
-
-		topDao.insertTopBdd(titre,link,id_categorie);
+		topDao.insertQuestionBdd(titreQuestion, linkQuestion, id_top);
+		*/
 		
 		return "index";
 	}
