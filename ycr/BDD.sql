@@ -32,17 +32,13 @@ ENGINE = InnoDB;
 -- Table `myrank`.`Question`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myrank`.`question` (
-id int NOT NULL AUTO_INCREMENT,
+  id int NOT NULL AUTO_INCREMENT,
   titre VARCHAR(25) NOT NULL,
   point INT NULL,
-  `Categorie_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `Categorie_id`),
-  INDEX `fk_Question_Categorie1_idx` (`Categorie_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Question_Categorie1`
-    FOREIGN KEY (`Categorie_id`)
-    REFERENCES `myrank`.`Categorie` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  link VARCHAR(2083),
+  id_top INT NOT NULL,
+  PRIMARY KEY (`id`, `Categorie_id`))
+  
 ENGINE = InnoDB;
 
 
