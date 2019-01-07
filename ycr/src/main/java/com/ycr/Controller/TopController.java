@@ -23,8 +23,9 @@ public class TopController {
 		String titre = top.getTitre();
 		Integer point = top.getPoint();
 		String link = top.getLink();
+		Integer id_categorie = top.getId_categorie();
 
-		topDao.insertBdd(titre,point,link);
+		topDao.insertBdd(titre,point,link,id_categorie);
 		
 		return "index";
 	}

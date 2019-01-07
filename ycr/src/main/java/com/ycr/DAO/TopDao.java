@@ -23,9 +23,9 @@ public interface TopDao extends CrudRepository<Top,Integer> {
 	Top getTopById(Integer id);
 
 	@Modifying
-	@Query(value ="INSERT INTO top (titre, point, link, categorie_id) VALUES (:titre, :point, :link, :categorie_id)", nativeQuery =true)
+	@Query(value ="INSERT INTO top (titre, point, link, categorie_id) VALUES (:titre, :point, :link, :id_categorie)", nativeQuery =true)
 	@Transactional
-	void insertBdd(@Param ("titre") String string, @Param ("point") Integer string2, @Param ("link") String string3, @Param ("categorie_id") Integer string4);
+	void insertBdd(@Param ("titre") String string, @Param ("point") Integer string2, @Param ("link") String string3, @Param ("id_categorie") Integer string4);
 
 
 
