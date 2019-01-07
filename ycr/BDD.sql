@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `myrank`.`question` (
   point INT NULL,
   link VARCHAR(2083),
   id_top INT NOT NULL,
-  PRIMARY KEY (`id`, `Categorie_id`))
+  PRIMARY KEY (`id`))
   
 ENGINE = InnoDB;
 
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `myrank`.`Resultat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `myrank`.`Resultat` (
+/*CREATE TABLE IF NOT EXISTS `myrank`.`Resultat` (
   `id` INT NOT NULL,
   `valeur` VARCHAR(45) NULL,
   `point` INT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `myrank`.`Resultat` (
     REFERENCES `myrank`.`Question` (`id` , `Categorie_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB;*/
 
 
 -- -----------------------------------------------------
