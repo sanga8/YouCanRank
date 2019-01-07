@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `myrank`.`question` (
   id int NOT NULL AUTO_INCREMENT,
   titre VARCHAR(25) NOT NULL,
-  point INT NULL,
+  point INT(11) NULL DEFAULT 0,
   link VARCHAR(2083),
   id_top INT NOT NULL,
   PRIMARY KEY (`id`))
@@ -84,7 +84,7 @@ CREATE TABLE  `persistent_logins` (
 CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   id int NOT NULL AUTO_INCREMENT,
   titre VARCHAR(25) NOT NULL,
-  point INT NOT NULL,
+  point INT(11) NULL DEFAULT 0,
   link VARCHAR(2083),
   id_categorie int not null,
   PRIMARY KEY (id),

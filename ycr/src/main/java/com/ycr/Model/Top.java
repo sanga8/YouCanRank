@@ -1,5 +1,6 @@
 package com.ycr.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +14,16 @@ public class Top{
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
+	@Column(name="titre")
 	private String titre;
+
+	@Column(name="link")
 	private String link;
+	
+	@Column(name="point")
 	private Integer point;
+
+	@Column(name="id_categorie")
 	private Integer id_categorie;
 
 

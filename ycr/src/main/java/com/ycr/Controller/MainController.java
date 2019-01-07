@@ -54,10 +54,7 @@ public class MainController {
 
 
 
-    @GetMapping(value="/create")
-	public String toCreate() {
-		return "create";
-	}
+ 
 	
 	@GetMapping(value="/login")
 	public String login(Model model) {

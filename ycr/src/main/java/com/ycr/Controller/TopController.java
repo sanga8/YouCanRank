@@ -17,10 +17,13 @@ import com.ycr.DAO.*;
 @Controller
 public class TopController {
 
-	private ArrayList<Question> questions = new ArrayList<Question>();
-
     @Autowired
     private TopDao topDao;
+
+	@GetMapping(value="/create")
+	public String toCreate() {
+		return "create";
+	}
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String Register(@ModelAttribute(name = "createForm") Top top, ArrayList<Question> questions, Model model) {
@@ -33,10 +36,10 @@ public class TopController {
 		for (int i=0;i<questions.size();++i){
 		String titreQuestion = questions.get(i).getTitre();
 		String linkQuestion =questions.get(i).getLink();
-		Integer id_topQuestion = questions.get(i).getTop_id();
+		Integer id_top= top.getId();
 
 
-		topDao.insertQuestionBdd(titreQuestion, linkQuestion, id_topQuestion);	
+		topDao.insertQuestionBdd(titreQuestion, linkQuestion, id_top);	
 		}
 
 		topDao.insertTopBdd(titre,link,id_categorie);
