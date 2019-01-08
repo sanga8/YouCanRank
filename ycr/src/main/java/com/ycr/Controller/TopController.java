@@ -22,15 +22,15 @@ public class TopController {
 
 	@GetMapping(value="/create")
 	public String toCreate(Model model) {
-
+		/*
 		Question q1 = new Question();
 		model.addAttribute("q1",q1);
-
+        */
 		return "create";
 	}
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String Register(Top top, Question q1, Model model) {
+    @PostMapping(value = "/create")
+	public String Register(@ModelAttribute(name ="createForm") Top top, Model model) {
 
 		String titre = top.getTitre();
 		String link = top.getLink();
