@@ -12,20 +12,22 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                            <form method="post" th:action="@{/create}" th:object="${createForm}">
+                            <form method="post" th:action="@{/create}" th:object="${top}">
 
                                 <input class="un" id="search" type="text" align="center" placeholder="titre" name="titre">
                                 <input class="un" id="image" type="text" align="center" placeholder="link" name="link">
                                 <input class="un" type="text" align="center" placeholder="id_categorie" name="id_categorie">
                                 <button onclick="searchImage();" type="button" >Search image</button>
                                 <button type="submit" class="submit" align="center">Create</button>
-                
+                            
+                            </form>
                                         <td>
                                             <a href="index">Home</a>
                                         </td>
                                 <br>
-                                <div class="question">
-                                        <div id="q1"><input type="text" placeholder="nom" name="q1"><input type="text" placeholder="link" name="l1"><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div class="question"><form method="post" th:action="@{/create}" th:object="${q1}">
+                                        <div id="q1"><input type="text" placeholder="nom" name="titre"><input type="text" placeholder="link" name="l1"><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                    </form>
                                         <div id="q2" style="display: none;" ><input type="text" placeholder="nom" name="q2"><input type="text" placeholder="link" name="l2"><button type="button" onclick="hideShow(3);">Add+</button></div>
                                         <div id="q3" style="display: none;" ><input type="text" placeholder="Third element" name="q3"><button type="button" onclick="hideShow(4);">Add+</button></div>
     
@@ -44,7 +46,7 @@
                                         <div id="q13" style="display: none;" ><input type="text" placeholder="An element" name="q13" ></div>
                                 </div>
                                 
-                            </form>>
+                            
                         </div>
                     
                     <footer th:insert="fragments/header.html :: footer"> </footer>

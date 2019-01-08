@@ -18,25 +18,31 @@ import com.ycr.DAO.*;
 public class TopController {
 
     @Autowired
-    private TopDao topDao;
+	private TopDao topDao;
+	@Autowired
+	private QuestionRepository questionRepository;
 
 	@GetMapping(value="/create")
 	public String toCreate(Model model) {
-		/*
+
+		Top top = new Top();
+		model.addAttribute("top",top);
+		
 		Question q1 = new Question();
 		model.addAttribute("q1",q1);
-        */
+        
 		return "create";
 	}
 
     @PostMapping(value = "/create")
-	public String Register(@ModelAttribute(name ="createForm") Top top, Model model) {
+	public String Register(Top top,Question q1, Model model) {
+		
 
-		String titre = top.getTitre();
-		String link = top.getLink();
-		Integer id_categorie = top.getId_categorie();
-
-		topDao.insertTopBdd(titre,link,id_categorie);
+		topDao.save(top);
+		q1.setTop_id(top.getId());
+		questionRepository.save(q1);
+		//topDao.insertTopBdd(titre,link,id_categorie);
+		
 
 		/*
 		String titreQuestion = q1.getTitre();
