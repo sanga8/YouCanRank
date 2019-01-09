@@ -1,5 +1,6 @@
 package com.ycr.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.ycr.Model.*;
 
 import java.util.ArrayList;
+
+import javax.validation.Valid;
 
 import com.ycr.DAO.*;
 
@@ -71,14 +74,22 @@ public class TopController {
 	}
 
     @PostMapping(value = "/create")
-	public String Register(Top top,Question q1, Question q2, Question q3, Question q4, Question q5, Question q6, Question q7
-	, Question q8, Question q9, Question q10, Question q11, Question q12, Question q13, Model model) {
-		
+	public String Register(Top top, Question q1, Model model) {
+	
+
 		topDao.save(top);
-
+		model.addAttribute("top", new Top());
+		
+		q1.getTitre();
+		q1.getLink();
 		q1.setTop_id(top.getId());
-		questionRepository.save(q1);
 
+		questionRepository.save(q1);
+		model.addAttribute("q1", new Question());
+
+
+
+		/*
 		q2.setTop_id(top.getId());
 		questionRepository.save(q2);
 
@@ -114,8 +125,8 @@ public class TopController {
 
 		q13.setTop_id(top.getId());
 		questionRepository.save(q13);
-		
+		*/
 		return "index";
-		
+
 	}
 }

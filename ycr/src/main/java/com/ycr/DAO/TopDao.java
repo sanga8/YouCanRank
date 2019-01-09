@@ -1,13 +1,10 @@
 package com.ycr.DAO;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import javax.transaction.Transactional;
 
 import com.ycr.Model.Top;
 
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -20,8 +17,9 @@ public interface TopDao extends CrudRepository<Top,Integer> {
 	List<Top> findFirst10ByOrderByPointDesc();
 	
 	
-	Top getTopById(Integer id);
+	//Top getTopById(Integer id);
 
+	/*
 	@Modifying
 	@Query(value ="INSERT INTO top (titre, link, id_categorie) VALUES (:titre, :link, :id_categorie)", nativeQuery =true)
 	@Transactional
@@ -31,7 +29,7 @@ public interface TopDao extends CrudRepository<Top,Integer> {
 	@Query(value ="INSERT INTO question (titre, link, id_top) VALUES (:titre, :link, :id_top)", nativeQuery =true)
 	@Transactional
 	void insertQuestionBdd(@Param ("titre") String string, @Param ("link") String string2, @Param ("id_top") Integer string3);
-
+	*/
 	
 
 
