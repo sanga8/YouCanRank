@@ -12,18 +12,18 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                            <form method="post" th:action="@{/create}" th:object="${top}">
+                            <form method="post" th:action="@{/create}" th:object="${createDTO}">
 
-                                <input class="un" id="search" type="text" align="center" placeholder="titre"  name="titre" th:field="${top.titre}">
-                                <input class="un" id="image" type="text" align="center" placeholder="link" name="password" th:field="${top.link}">
-                                <input class="un" type="text" align="center" placeholder="id_categorie" name="id_categorie">
+                                <input class="un" id="search" type="text" align="center" placeholder="titre"   th:field="*{top.titre}">
+                                <input class="un" id="image" type="text" align="center" placeholder="link"  th:field="*{top.link}">
+                                <input class="un" type="text" align="center" placeholder="id_categorie"  th:field="*{top.id_categorie}">
                                 <button onclick="searchImage();" type="button" >Search image</button>
                                 
                                     
-                                    <form method="post" th:action="@{/create}" th:object="${q1}"></form>
-                                        <div id="q1"><input type="text" th:object="${q1}" placeholder="nom"  name="titreQ"><input type="text" placeholder="link" th:object="${q1}" name="linkQ"><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                    
+                                        <div id="q1"><input type="text" placeholder="nom"  th:field="*{questionList[0].titre}"><input type="text" placeholder="link" th:field="*{questionList[0].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
                                         <button type="submit" name="create" class="submit" align="center">Create</button>  
-                                    </form>
+                                    
 
                                     <!--
                                     <form method="post" th:action="@{/create}" th:object="${q3}"> 

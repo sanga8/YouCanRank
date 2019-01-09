@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.ycr.Model.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import com.ycr.DAO.*;
+
+import com.ycr.DTO.*;
 
 @Controller
 public class TopController {
@@ -24,17 +27,24 @@ public class TopController {
 	private TopDao topDao;
 	@Autowired
 	private QuestionRepository questionRepository;
+	
 
 	@GetMapping(value="/create")
 	public String toCreate(Model model) {
 
 		Top top = new Top();
-		model.addAttribute("top",top);
+		//model.addAttribute("top",top);
 
 		Question q1 = new Question();
-		model.addAttribute("q1",q1);
+		//model.addAttribute("q1",q1);
 
-		Question q2 = new Question();
+		List<Question> questionList= new ArrayList<Question>();
+
+		questionList.add(q1);
+
+		CreateDTO createDTO = new CreateDTO(top, questionList);
+		model.addAttribute("createDTO",createDTO);
+		/*Question q2 = new Question();
 		model.addAttribute("q2",q2);
 
 		Question q3 = new Question();
@@ -68,24 +78,22 @@ public class TopController {
 		model.addAttribute("q12",q12);
 
 		Question q13 = new Question();
-		model.addAttribute("q13",q13);
+		model.addAttribute("q13",q13);*/
 
 		return "create";
 	}
 
     @PostMapping(value = "/create")
-	public String Register(Top top, Question q1, Model model) {
-	
+	public String Register(CreateDTO createDTO, Model model) {
 
-		topDao.save(top);
-		model.addAttribute("top", new Top());
+		topDao.save(createDTO.getTop());
+		//model.addAttribute("top", new Top());
 		
-		q1.getTitre();
-		q1.getLink();
-		q1.setTop_id(top.getId());
+		
+		createDTO.getQuestionList().get(0).setTop_id(createDTO.getTop().getId());
 
-		questionRepository.save(q1);
-		model.addAttribute("q1", new Question());
+		questionRepository.save(createDTO.getQuestionList().get(0));
+		//model.addAttribute("q1", new Question());
 
 
 
