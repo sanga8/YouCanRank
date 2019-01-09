@@ -18,44 +18,22 @@
                                 <input class="un" id="image" type="text" align="center" placeholder="link"  th:field="*{top.link}">
                                 <input class="un" type="text" align="center" placeholder="id_categorie"  th:field="*{top.id_categorie}">
                                 <button onclick="searchImage();" type="button" >Search image</button>
-                                
-                                    
-                                    
-                                        <div id="q1"><input type="text" placeholder="nom"  th:field="*{questionList[0].titre}"><input type="text" placeholder="link" th:field="*{questionList[0].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
-                                        <button type="submit" name="create" class="submit" align="center">Create</button>  
-                                    
+                                 
+                                <div id="q1"><input type="text" placeholder="nom"  th:field="*{questionList[0].titre}"><input type="text" placeholder="link" th:field="*{questionList[0].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q2"><input type="text" placeholder="nom"  th:field="*{questionList[1].titre}"><input type="text" placeholder="link" th:field="*{questionList[1].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q3"><input type="text" placeholder="nom"  th:field="*{questionList[2].titre}"><input type="text" placeholder="link" th:field="*{questionList[2].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q4"><input type="text" placeholder="nom"  th:field="*{questionList[3].titre}"><input type="text" placeholder="link" th:field="*{questionList[3].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q5"><input type="text" placeholder="nom"  th:field="*{questionList[4].titre}"><input type="text" placeholder="link" th:field="*{questionList[4].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q6"><input type="text" placeholder="nom"  th:field="*{questionList[5].titre}"><input type="text" placeholder="link" th:field="*{questionList[5].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q7"><input type="text" placeholder="nom"  th:field="*{questionList[6].titre}"><input type="text" placeholder="link" th:field="*{questionList[6].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q8"><input type="text" placeholder="nom"  th:field="*{questionList[7].titre}"><input type="text" placeholder="link" th:field="*{questionList[7].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q9"><input type="text" placeholder="nom"  th:field="*{questionList[8].titre}"><input type="text" placeholder="link" th:field="*{questionList[8].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q10"><input type="text" placeholder="nom"  th:field="*{questionList[9].titre}"><input type="text" placeholder="link" th:field="*{questionList[9].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q11"><input type="text" placeholder="nom"  th:field="*{questionList[10].titre}"><input type="text" placeholder="link" th:field="*{questionList[10].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q12"><input type="text" placeholder="nom"  th:field="*{questionList[11].titre}"><input type="text" placeholder="link" th:field="*{questionList[11].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <div id="q13"><input type="text" placeholder="nom"  th:field="*{questionList[12].titre}"><input type="text" placeholder="link" th:field="*{questionList[12].link}" ><button type="button" onclick="hideShow(2);">Add+</button></div>
+                                <button type="submit" name="create" class="submit" align="center">Create</button>  
 
-                                    <!--
-                                    <form method="post" th:action="@{/create}" th:object="${q3}"> 
-                                        <div id="q3" style="display: none;" ><input type="text" placeholder="Third element" name="q3"><button type="button" onclick="hideShow(4);">Add+</button></div>
-                                    </form>
-                                    <form method="post" th:action="@{/create}" th:object="${q4}">
-                                        <div id="q4" style="display: none;" ><input type="text" placeholder="An element" name="q4"><button type="button" onclick="hideShow(5);">Add+</button></div>
-                                    </form>
-                                    <form method="post" th:action="@{/create}" th:object="${q5}">
-                                        <div id="q5" style="display: none;" ><input type="text" placeholder="An element" name="q5"><button type="button" onclick="hideShow(6);">Add+</button></div>
-                                    </form> 
-                                    <form method="post" th:action="@{/create}" th:object="${q6}">   
-                                        <div id="q6" style="display: none;" ><input type="text" placeholder="An element" name="q6"><button type="button" onclick="hideShow(7);">Add+</button></div>
-                                    </form>
-                                    <form method="post" th:action="@{/create}" th:object="${q7}">
-                                        <div id="q7" style="display: none;" ><input type="text" placeholder="An element" name="q7"><button type="button" onclick="hideShow(8);">Add+</button></div>
-                                    </form>
-                                    <form method="post" th:action="@{/create}" th:object="${q8}">
-                                        <div id="q8" style="display: none;" ><input type="text" placeholder="An element" name="q8"><button type="button" onclick="hideShow(9);">Add+</button></div>
-                                    </form><form method="post" th:action="@{/create}" th:object="${q9}">    
-                                        <div id="q9" style="display: none;" ><input type="text" placeholder="An element" name="q9"><button type="button" onclick="hideShow(10);">Add+</button></div>
-                                    </form><form method="post" th:action="@{/create}" th:object="${q10}">
-                                        <div id="q10" style="display: none;" ><input type="text" placeholder="An element" name="q10" ><button type="button" onclick="hideShow(11);">Add+</button></div>
-                                    </form><form method="post" th:action="@{/create}" th:object="${q11}">    
-                                        <div id="q11" style="display: none;" ><input type="text" placeholder="An element" name="q11" ><button type="button" onclick="hideShow(12);">Add+</button></div>
-                                    </form><form method="post" th:action="@{/create}" th:object="${q12}">
-                                        <div id="q12" style="display: none;" ><input type="text" placeholder="An element" name="q12" ><button type="button" onclick="hideShow(13);">Add+</button></div>
-                                    </form><form method="post" th:action="@{/create}" th:object="${q13}">
-                                        <div id="q13" style="display: none;" ><input type="text" placeholder="An element" name="q13" ></div>
-                                    </form>
-                                    -->
-                                
                                  
                             </form>  
                             
