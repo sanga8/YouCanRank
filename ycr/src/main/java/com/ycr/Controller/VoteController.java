@@ -54,10 +54,12 @@ public class VoteController {
 
 	}
 
-	@GetMapping(value="/Addvote.htm")
-	public void Vote(@ModelAttribute(value="question") Question question, BindingResult result ){
+	@GetMapping(value="/Addvote/{id}")
+	public void Vote(@PathVariable(value="id") String id, Model model){
+
+		Integer id_question = Integer.parseInt(id);
 		
-            questionRepository.update(question.getId());
+        questionRepository.update(id_question);
             
 	}
 }

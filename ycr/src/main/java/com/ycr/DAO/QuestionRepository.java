@@ -2,6 +2,8 @@ package com.ycr.DAO;
 
 import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import com.ycr.Model.Question;
@@ -24,7 +26,9 @@ public interface QuestionRepository extends CrudRepository<Question,Integer> {
     @Modifying
 	@Query(value ="UPDATE Question SET point = point+1 WHERE id = :id", nativeQuery =true)
 	@Transactional
-	void update(@Param ("id") Integer id);
+    void update(@Param ("id") Integer id);
+    
+    Optional<Question> findById(Integer id);
 
 
 

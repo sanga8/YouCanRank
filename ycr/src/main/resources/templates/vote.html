@@ -7,9 +7,10 @@
     function doAjax(id){
       console.log(id)
       $.ajax({
-        type:"POST",
-        url:'/Addvote.htm',
-        data: id
+        type:"GET",
+        url:'/Addvote/'+id+'',
+        data: 'id='+id,
+        success:console.log('fonctionne')
       });
     }
   
@@ -27,8 +28,8 @@
           
           <div th:each="question, itemStat : *{createDTO.questionList}">
             <div><p th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
-            <div onclick="doAjax(/*[[*{createDTO.questionList[__${itemStat.index}__].id}]]*/)" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"><p th:text="*{createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
-            <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"></button>
+            <div th:id="*{createDTO.questionList[__${itemStat.index}__].id}"><p th:text="*{createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
+            <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'" ></button>
           </div>
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>
