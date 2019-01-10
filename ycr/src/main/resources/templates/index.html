@@ -13,7 +13,7 @@
 
           <div class="box" th:each="top : ${top}">
             <img th:src="@{${top.link}}"/>
-            <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.titre}__}"></a>
+            <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.id}__}"></a>
             <div th:text="'Points '+${top.point}"></div>
           </div>
 

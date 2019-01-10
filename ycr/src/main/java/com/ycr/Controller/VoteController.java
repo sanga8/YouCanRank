@@ -7,12 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ycr.Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.ycr.DAO.*;
 
@@ -27,10 +30,14 @@ public class VoteController {
 	private QuestionRepository questionRepository;
 	
 
-	@GetMapping(value="/vote/{top.titre}")
-	public String toCreate(Model model) {
+	@GetMapping(value="/vote/{top.id}")
+	public String toCreate(@PathVariable(value="top.id") String id, Model model) {
 
-  
+        Optional<Top> top = topDao.findById(Integer.parseInt(id));
+        String titre = top.get().getTitre();
+        model.addAttribute("titre", titre);
+
+
 		return "vote";
 	}
 
