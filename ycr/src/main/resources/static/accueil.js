@@ -23,11 +23,18 @@
 
 function hideShow(i) {
   var x = document.getElementById("q"+i);
+  i=i-1
+  var y = document.getElementById("q"+i);
+  console.log(y);
   if (x.style.display === "none") {
     x.style.display = "block";
+    y.getElementsByTagName('button')[1].textContent="Delete -";
   }
   else  {
+    x.getElementsByTagName('input')[0].value="";
+    x.getElementsByTagName('input')[1].value=""
     x.style.display = "none";
+    y.getElementsByTagName('button')[1].textContent="Add +";
   }
   
 }
