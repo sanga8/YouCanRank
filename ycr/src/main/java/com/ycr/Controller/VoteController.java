@@ -33,10 +33,14 @@ public class VoteController {
 	@GetMapping(value="/vote/{top.id}")
 	public String toCreate(@PathVariable(value="top.id") String id, Model model) {
 
-        Optional<Top> top = topDao.findById(Integer.parseInt(id));
-        String titre = top.get().getTitre();
-        model.addAttribute("titre", titre);
+		Integer id_top = Integer.parseInt(id);
 
+		Top top = topDao.findById(id_top).get();
+		
+		List<Question> questionList = questionRepository.questionByIdTop(id_top);
+
+		CreateDTO createDTO = new CreateDTO(top, questionList);
+		model.addAttribute("createDTO",createDTO);
 
 		return "vote";
 	}

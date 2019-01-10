@@ -11,11 +11,13 @@
         <div id="corps" class="no">
           <!--code here-->
           
-          <div th:text="'Titre '+${titre}"></div>
-
-
+          <div th:text="*{createDTO.top.titre}"></div>
+          
+          <div th:each="question, itemStat : *{createDTO.questionList}">
+            <div><input th:field="*{createDTO.questionList[__${itemStat.index}__].titre}" /></div>
+            <div><input th:field="*{createDTO.questionList[__${itemStat.index}__].link}" /></div>
+          </div>
         </div>
-
       <footer th:insert="fragments/header.html :: footer"> </footer>
 
   </body>
