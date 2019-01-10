@@ -39,13 +39,6 @@ public class MainController {
 	@GetMapping(value={"","/index","/"})
 	public String index(Model model) {
 
-		/*
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();	
-		if(auth!=null){
-			User user = userService.findUserByUsername(auth.getName());
-			model.addAttribute("userName", user.getUsername());
-		}
-		*/
 		model.addAttribute("top", topDao.findFirst10ByOrderByPointDesc());
 		 
 		

@@ -15,9 +15,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface QuestionRepository extends CrudRepository<Question,Integer> {
 	
-	//List<Top> findAll(Sort sort);
-
-	
-
 
 }
