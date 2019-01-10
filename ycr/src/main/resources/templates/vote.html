@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
   <head th:insert="fragments/header.html :: head"> </head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript">
     function doAjax(id){
       console.log(id)
       $.ajax({
         type:"POST",
-        url
-      })
+        url:'/Addvote.htm',
+        data: id
+      });
     }
   
   </script>

@@ -55,15 +55,9 @@ public class VoteController {
 	}
 
 	@GetMapping(value="/Addvote.htm")
-	public @ResponseBody String Vote(@ModelAttribute(value="question") Question question, BindingResult result ){
-		String returnText;
-        if(!result.hasErrors()){
+	public void Vote(@ModelAttribute(value="question") Question question, BindingResult result ){
+		
             questionRepository.update(question.getId());
-            returnText = "Voted";
-        }else{
-            returnText = "Sorry, an error has occur";
-        }
-        return returnText;
-
+            
 	}
 }
