@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Question{
 	
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titre;
 	private String link;
