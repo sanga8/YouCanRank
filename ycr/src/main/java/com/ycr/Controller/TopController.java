@@ -74,8 +74,6 @@ public class TopController {
 	public String Register(CreateDTO createDTO, Model model) {
 
 		topDao.save(createDTO.getTop());
-		
-		
 
 		for (int i=0; i<13;++i){
 			if(createDTO.getQuestionList().get(i).getTitre().length() > 0 && createDTO.getQuestionList().get(i).getLink().length()>0){

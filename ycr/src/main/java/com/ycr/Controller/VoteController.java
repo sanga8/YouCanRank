@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -50,6 +51,19 @@ public class VoteController {
 
 	
 		return "vote";
+
+	}
+
+	@GetMapping(value="/Addvote.htm")
+	public @ResponseBody String Vote(@ModelAttribute(value="question") Question question, BindingResult result ){
+		String returnText;
+        if(!result.hasErrors()){
+            questionRepository.update(question.getId());
+            returnText = "Voted";
+        }else{
+            returnText = "Sorry, an error has occur";
+        }
+        return returnText;
 
 	}
 }

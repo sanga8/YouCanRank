@@ -2,6 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
   <head th:insert="fragments/header.html :: head"> </head>
+  <script type="text/javascript">
+    function doAjax(id){
+      console.log(id)
+    }
+  
+  </script>
 
   <body>
       <header th:insert="fragments/header.html :: header"> </header>
@@ -14,8 +20,9 @@
           <div th:text="*{createDTO.top.titre}"></div>
           
           <div th:each="question, itemStat : *{createDTO.questionList}">
-            <div><input th:field="*{createDTO.questionList[__${itemStat.index}__].titre}" /></div>
-            <div><input th:field="*{createDTO.questionList[__${itemStat.index}__].link}" /></div>
+            <div><p th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
+            <div onclick="doAjax(/*[[*{createDTO.questionList[__${itemStat.index}__].id}]]*/)" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"><p th:text="*{createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
+            <button onclick="doAjax([[*{createDTO.questionList[__${itemStat.index}__].id}]])"></button>
           </div>
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>

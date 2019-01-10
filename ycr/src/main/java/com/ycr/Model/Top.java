@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Value;
+
 
 @Entity
 public class Top{
@@ -19,10 +21,9 @@ public class Top{
 
 	private String link;
 
-	private Integer point;
+	private Integer point =0;
 
 	private Integer id_categorie;
-
 
 	public Integer getId()
 	{

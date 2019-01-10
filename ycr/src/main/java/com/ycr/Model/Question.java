@@ -14,7 +14,7 @@ public class Question{
 	private Integer id;
 	private String titre;
 	private String link;
-    private Integer point;
+    private Integer point=0;
     private Integer id_top;
 
 

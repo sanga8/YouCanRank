@@ -8,8 +8,7 @@ function searchImage(id){
      else{
       var x =id.getElementsByTagName('input')[0].value;
      }
-    
-    console.log(x);
+      
     script = document.createElement('script'),
     head = document.getElementsByTagName('head')[0]
     script.src = "https://www.googleapis.com/customsearch/v1?num=1&key=AIzaSyB8n4ZGjzmdXhbvIaUCPtHf2_IalryZRi8&cx=009122468185306112560:ke7sd2bstaw&searchType=image&fileType=jpg&imgSize=medium&callback=hndlr&q="+x;

@@ -21,6 +21,10 @@ public interface QuestionRepository extends CrudRepository<Question,Integer> {
     nativeQuery = true)
     List<Question> questionByIdTop(@Param ("id_top") Integer id_top);
 
+    @Modifying
+	@Query(value ="UPDATE Question SET point = point+1 WHERE id = :id", nativeQuery =true)
+	@Transactional
+	void update(@Param ("id") Integer id);
 
 
 
