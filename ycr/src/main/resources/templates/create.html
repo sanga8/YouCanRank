@@ -12,7 +12,7 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                            <form method="post" th:action="@{/create}" th:object="${createDTO}">
+                            <form method="post" th:action="@{/create}" th:object="${createDTO}" sec:authorize="isAuthentificated()">
 
                                 <input class="un" id="search" type="text" align="center" placeholder="titre"   th:field="*{top.titre}">
                                 <input class="un" id="image" type="text" align="center" placeholder="link"  th:field="*{top.link}">
@@ -33,10 +33,13 @@
                                 <div id="q12" style="display: none;"><input type="text" placeholder="nom"  th:field="*{questionList[11].titre}"><input type="text" placeholder="link" th:field="*{questionList[11].link}" ><button onclick="searchImage(q12);" type="button" >Search image</button><button type="button" onclick="hideShow(13);">Add +</button></div>
                                 <div id="q13" style="display: none;"><input type="text" placeholder="nom"  th:field="*{questionList[12].titre}"><input type="text" placeholder="link" th:field="*{questionList[12].link}" ><button onclick="searchImage(q13);" type="button" >Search image</button></div>
                                 <button type="submit" name="create" class="submit" align="center">Create</button>  
-
-                                 
+                                <div sec:authorize="isAnonymous()">  
+                                    <p class="alert alert-danger" role="alert">Access denied. Please log-in.</p>
+                                    <a href="login">Log-in</a>
+                                    <a href="register">Register</a>
+                                </div> 
                             </form>  
-                            
+
                         </div>
                     
                     <footer th:insert="fragments/header.html :: footer"> </footer>
