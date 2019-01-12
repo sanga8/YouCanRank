@@ -5,8 +5,9 @@ import com.ycr.Service.UserService;
 
 import javax.validation.Valid;
 
+import com.ycr.DAO.CategorieDao;
 import com.ycr.DAO.TopDao;
-import com.ycr.Model.Top;
+import com.ycr.Model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -30,6 +31,7 @@ public class MainController {
 	private UserService userService;
 
 	private TopDao topDao;
+	private CategorieDao categorieDao;
 
 	@Autowired
 	public void setTopDao(TopDao topDao) {
@@ -40,7 +42,7 @@ public class MainController {
 	public String index(Model model) {
 
 		model.addAttribute("top", topDao.findFirst10ByOrderByPointDesc());
-		 
+		model.addAttribute("categorie", categorieDao.find());
 		
 		return "index";
 	}
