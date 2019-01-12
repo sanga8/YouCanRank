@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "username")

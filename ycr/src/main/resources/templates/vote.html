@@ -7,7 +7,7 @@
     function doAjax(id){
       console.log(id)
       $.ajax({
-        type:"GET",
+        type:"POST",
         url:'/Addvote/'+id+'',
         data: 'id='+id,
         success:console.log('fonctionne')

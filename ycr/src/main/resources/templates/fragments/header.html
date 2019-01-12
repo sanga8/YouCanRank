@@ -21,7 +21,7 @@
                   <div class="bar2"></div>
                   <div class="bar3"></div>
                 </div>
-                <div class="logo col-sm-2"><a href="index"><img src="../images/logoblanc.png" height="35px"></a></div>
+                <div class="logo col-sm-2"><a href="/"><img src="../images/logoblanc.png" height="35px"></a></div>
                   <div class="search-container col-sm-7">
                     <form id="search-bar" action="#">
                       <input type="text" placeholder="Search.." name="search">
@@ -38,7 +38,7 @@
                         <div sec:authorize="isAuthenticated()">
                           <!--<This content is only shown to authenticated users.>-->
                               <a th:href="@{/logout}">Log out</a>
-                              <a href="create">CREATE</a>
+                              <a href="/create">CREATE</a>
                               
                               <span th:utext="${userName}"></span>
 
@@ -52,10 +52,9 @@
 
     <div id="Sidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="myFunction()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <div th:each="categorie : ${categorie}">
+              <a href="#" th:text="${categorie.type}"></a>
+            </div>
     </div>
 
     <footer>

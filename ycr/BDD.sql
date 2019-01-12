@@ -21,7 +21,7 @@ USE `myrank` ;
 -- Table `myrank`.`Categorie`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myrank`.`Categorie` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(15) NOT NULL,
   `couleur` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`))
@@ -121,6 +121,14 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `myrank`.`categorie` (`id`, `type`, `couleur`) VALUES ('1', 'sport', 'vert');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'sport', 'rouge');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Mode', 'rose');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Jeux vidéos', 'orange');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Cinéma', 'blanc');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Litterature', 'violet');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Musique', 'vert');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Vices', 'noir');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Autres', 'jaune');
+
 INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`, `id_categorie`) VALUES ('1', 'mbappe', '12', 'osef', '1');
 

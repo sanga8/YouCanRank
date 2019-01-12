@@ -54,9 +54,9 @@ public class VoteController {
 
 	}
 
-	@GetMapping(value="/Addvote/{id}")
+	@PostMapping(value="/Addvote/{id}")
 	public void Vote(@PathVariable(value="id") String id, Model model){
-
+		
 		Integer id_question = Integer.parseInt(id);
 		
         questionRepository.update(id_question);
