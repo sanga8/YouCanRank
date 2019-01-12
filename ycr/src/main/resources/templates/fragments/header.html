@@ -51,11 +51,11 @@
     </header>
 
     <div id="Sidenav" class="sidenav">
-      
+
             <a href="javascript:void(0)" class="closebtn" onclick="myFunction()">&times;</a>
             <div th:if="${not #lists.isEmpty(categorie)}">
               <div th:each="categorie : ${categorie}">
-                <a href="#" th:text="${categorie.type}"></a>
+                <a  th:style="'border-left-color: #'+${categorie.couleur}" th:href="@{/categorie/__${categorie.id}__}" th:text="${categorie.type}"></a>
               </div>
             </div>
             

@@ -121,14 +121,15 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'sport', 'rouge');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Mode', 'rose');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Jeux vidéos', 'orange');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Cinéma', 'blanc');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Litterature', 'violet');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Musique', 'vert');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Vices', 'noir');
-INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Autres', 'jaune');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Sport', 'b71c1c');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Mode', '880E4F');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Jeux vidéo', 'BF360C');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Cinéma', 'FFFFFF');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Litterature', '4A148C');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Musique', '33691E');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Vices', '000000');
+INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Autres', 'FFD600');
 
 INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`, `id_categorie`) VALUES ('1', 'mbappe', '12', 'osef', '1');
 
+SELECT * FROM myrank.categorie

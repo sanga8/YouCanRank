@@ -15,8 +15,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface CategorieDao extends CrudRepository<Categorie,Integer> {
 	
-	@Query(value = "SELECT * FROM Categorie", nativeQuery = true)
-    List<Categorie> find();
+	
+	List<Categorie> findAll();
 	
 	Optional<Categorie> findById(Integer id);
 

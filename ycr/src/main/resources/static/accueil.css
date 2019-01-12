@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800');
+body{
+  font-family: 'Roboto';
+}
+
 nav{
     background-color: #eec923;
     height: 60px;
@@ -115,4 +121,47 @@ nav .search-container button{
 .box img{
   width: 150px;
   height: auto;
+}
+
+.sidenav div a {
+  border-left: 4px solid;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 20px;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+  margin-bottom: 3px;
+}
+
+.sidenav div a:hover{
+  background: #222;
+  border-left: 30px solid;
+}
+
+.display-4 span{
+  font-weight: 400;
+}
+.display-4{
+  font-size: 2.5rem;
+  letter-spacing: 7px;
+  font-weight: 200;
+  margin-left: 2.5rem;
+}
+
+.jumbotron{
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.5rem;
+  background-color: rgba(84,110,122 ,0.6);
+  color: white;
+  display: flex;
+}
+.container{
+  padding-right: 40px;
+    padding-left: 40px;
+}
+.jumbotron img{
+  margin-left: 2rem;
 }

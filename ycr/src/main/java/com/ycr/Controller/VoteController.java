@@ -28,6 +28,8 @@ public class VoteController {
     @Autowired
 	private TopDao topDao;
 	@Autowired
+	private CategorieDao categorieDao;
+	@Autowired
 	private QuestionRepository questionRepository;
 	
 
@@ -42,6 +44,7 @@ public class VoteController {
 
 		CreateDTO createDTO = new CreateDTO(top, questionList);
 		model.addAttribute("createDTO",createDTO);
+		model.addAttribute("categorie", categorieDao.findAll());
 
 		return "vote";
 	}

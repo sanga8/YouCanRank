@@ -17,7 +17,10 @@ public interface TopDao extends JpaRepository<Top,Integer> {
 	
 	List<Top> findFirst10ByOrderByPointDesc();
 
-	
+	@Query(value = "SELECT * FROM Top WHERE id_categorie = :id_categorie", 
+    nativeQuery = true)
+    List<Top> topByIdCategorie(@Param ("id_categorie") Integer id_categorie);
+
 	Optional<Top> findById(Integer id);
 
 

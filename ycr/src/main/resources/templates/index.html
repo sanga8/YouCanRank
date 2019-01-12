@@ -9,6 +9,11 @@
         <div th:insert="fragments/header.html :: div.sidenav"></div>
 
         <div id="corps" class="no">
+            <div class="container">
+                <div class="jumbotron">
+                    <img src="../images/icon.png" height="45px"><h1 class="display-4">Top<span> Rankings</span></h1>     
+                </div> 
+            </div>
         <div th:if="${not #lists.isEmpty(top)}">
 
           <div class="box" th:each="top : ${top}">

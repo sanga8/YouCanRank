@@ -3,6 +3,8 @@ package com.ycr.Controller;
 import com.ycr.Model.User;
 import com.ycr.Service.UserService;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.ycr.DAO.CategorieDao;
@@ -15,6 +17,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,20 +32,16 @@ public class MainController {
 
 	@Autowired
 	private UserService userService;
-
-	private TopDao topDao;
-	private CategorieDao categorieDao;
-
 	@Autowired
-	public void setTopDao(TopDao topDao) {
-		this.topDao = topDao;
-	}
+	private TopDao topDao;
+	@Autowired
+	private CategorieDao categorieDao;
 
 	@GetMapping(value={"","/index","/"})
 	public String index(Model model) {
 
 		model.addAttribute("top", topDao.findFirst10ByOrderByPointDesc());
-		model.addAttribute("categorie", categorieDao.find());
+		model.addAttribute("categorie", categorieDao.findAll());
 		
 		return "index";
 	}
@@ -52,6 +51,7 @@ public class MainController {
 	
 	@GetMapping(value="/login")
 	public String login(Model model) {
+		model.addAttribute("categorie", categorieDao.findAll());
 		return "login";
 	   }
 
@@ -60,6 +60,7 @@ public class MainController {
 		
 		User user = new User();
 		model.addAttribute("user", user);
+		model.addAttribute("categorie", categorieDao.findAll());
 		
 		return "register";
 	}
@@ -83,6 +84,20 @@ public class MainController {
 
 	return "register";
  }
+
+ @GetMapping(value="/categorie/{categorie.id}")
+	public String displayCat(@PathVariable(value="categorie.id") String id, Model model) {
+
+		Integer id_categorie = Integer.parseInt(id);
+
+		Categorie categorie = categorieDao.findById(id_categorie).get();
+	
+		model.addAttribute("top",topDao.topByIdCategorie(id_categorie));
+		model.addAttribute("categorie", categorieDao.findAll());
+		model.addAttribute("actuelle", categorie);
+
+		return "categorie";
+	}
 
 	
 
