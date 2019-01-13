@@ -16,7 +16,9 @@
 
                                 <input class="un" id="search" type="text" align="center" placeholder="titre"   th:field="*{top.titre}">
                                 <input class="un" id="image" type="text" align="center" placeholder="link"  th:field="*{top.link}">
-                                <input class="un" type="text" align="center" placeholder="id_categorie"  th:field="*{top.id_categorie}">
+                                <select th:field="*{top.id_categorie}" type="select">
+                                    <option th:each="categorie : ${categorie}" th:value="${categorie.id}" th:text="${categorie.type}"></option>
+                                </select>
                                 <button onclick="searchImage(search);" type="button" >Search image</button>
                                  
                                 <div id="q1"><input type="text" placeholder="nom"  th:field="*{questionList[0].titre}"><input type="text" placeholder="link" th:field="*{questionList[0].link}" ><button onclick="searchImage(q1);" type="button" >Search image</button><button type="button" onclick="hideShow(2);">Add +</button></div>
