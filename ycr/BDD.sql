@@ -132,4 +132,4 @@ INSERT INTO `myrank`.`categorie` ( `type`, `couleur`) VALUES ( 'Autres', 'FFD600
 
 INSERT INTO `myrank`.`top` (`id`, `titre`, `point`, `link`, `id_categorie`) VALUES ('1', 'mbappe', '12', 'osef', '1');
 
-SELECT * FROM myrank.categorie
+SELECT * FROM myrank.top where titre like '%t%';

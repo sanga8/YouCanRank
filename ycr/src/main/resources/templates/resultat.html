@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head th:insert="fragments/header.html :: head"> </head>
+
+  <body>
+      <header th:insert="fragments/header.html :: header"> </header>
+
+        <div th:insert="fragments/header.html :: div.sidenav"></div>
+
+        <div id="corps" class="no">
+            <div class="container">
+                <div class="jumbotron">
+                    <img src="../images/icon.png" height="45px"><h1 class="display-4">Résultats</span></h1>     
+                </div> 
+            </div>
+        <div th:if="${not #lists.isEmpty(top)}">
+
+          <div class="box" th:each="top : ${top}">
+            <img th:src="@{${top.link}}"/>
+            <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.id}__}"></a>
+            <div th:text="'Points '+${top.point}"></div>
+          </div>
+
+        </div>
+          <!--code here-->
+        </div>
+
+      <footer th:insert="fragments/header.html :: footer"> </footer>
+
+  </body>
+</html>

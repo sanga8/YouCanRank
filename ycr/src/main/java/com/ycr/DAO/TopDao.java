@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface TopDao extends JpaRepository<Top,Integer> {
+public interface TopDao extends CrudRepository<Top,Integer> {
 	
 	List<Top> findFirst10ByOrderByPointDesc();
 
@@ -22,6 +22,9 @@ public interface TopDao extends JpaRepository<Top,Integer> {
     List<Top> topByIdCategorie(@Param ("id_categorie") Integer id_categorie);
 
 	Optional<Top> findById(Integer id);
+
+	@Query(value= "SELECT * FROM Top where titre like %:keyword%",nativeQuery = true)
+	public List<Top> search(@Param("keyword") String keyword);
 
 
 

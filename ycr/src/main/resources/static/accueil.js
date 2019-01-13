@@ -1,4 +1,25 @@
-
+$(document).ready(function() {
+      
+  $('#topSearch').autocomplete({
+    serviceUrl: '/getTop',
+    paramName: "titre",
+    delimiter: ",",
+     transformResult: function(response) {
+          
+    return {      	
+      //must convert json to javascript object before process
+      suggestions: $.map($.parseJSON(response), function(item) {
+          
+          return { value: item.titre, data: item.id };
+       })
+                
+     };
+            
+            }
+        
+   });
+        
+  });
 
 
   function myFunction() {
@@ -37,4 +58,9 @@ function hideShow(i) {
     y.getElementsByTagName('button')[1].textContent="Add +";
   }
   
+}
+
+function result(){
+  var x = document.getElementById("topSearch");
+  window.location.href = "/search/"+x.value;
 }

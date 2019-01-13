@@ -3,6 +3,7 @@ package com.ycr.Controller;
 import com.ycr.Model.User;
 import com.ycr.Service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -24,6 +25,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -85,7 +88,7 @@ public class MainController {
 	return "register";
  }
 
- @GetMapping(value="/categorie/{categorie.id}")
+	@GetMapping(value="/categorie/{categorie.id}")
 	public String displayCat(@PathVariable(value="categorie.id") String id, Model model) {
 
 		Integer id_categorie = Integer.parseInt(id);
@@ -99,6 +102,23 @@ public class MainController {
 		return "categorie";
 	}
 
+	@GetMapping(value="/getTop")
+	@ResponseBody
+	List<Top> getTags(@RequestParam String titre) {
+
+		System.out.println(topDao.search(titre));
+		return topDao.search(titre);
+		
+	}
+
+	@GetMapping(value="/search/{top.titre}")
+	public String toCreate(@PathVariable(value="top.titre") String titre, Model model) {
+
+		model.addAttribute("top", topDao.search(titre));
+		model.addAttribute("categorie", categorieDao.findAll());
+
+		return "resultat";
+	}
 	
 
 }
