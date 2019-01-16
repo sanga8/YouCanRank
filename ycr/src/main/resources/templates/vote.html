@@ -4,8 +4,9 @@
   <head th:insert="fragments/header.html :: head"> </head>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script type="text/javascript">
-    function doAjax(id){
+    function doAjax(id,int){
       console.log(id)
+      console.log(int)
       $.ajax({
         type:"POST",
         url:'/Addvote/'+id+'',
@@ -34,11 +35,11 @@
 
           <div><p th:text="*{createDTO.questionList[0].titre}" ></p></div>
           <div th:id="*{createDTO.questionList[0].id}"><p th:text="*{createDTO.questionList[0].link}" ></p></div>
-          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[0].id} + ',0);'" ></button>
 
           <div><p th:text="*{createDTO.questionList[1].titre}" ></p></div>
           <div th:id="*{createDTO.questionList[1].id}"><p th:text="*{createDTO.questionList[1].link}" ></p></div>
-          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ',1);'" ></button>
 
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>

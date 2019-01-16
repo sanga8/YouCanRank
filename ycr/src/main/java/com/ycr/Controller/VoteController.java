@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 
 import com.ycr.DAO.*;
 
@@ -35,6 +37,7 @@ public class VoteController {
 	private QuestionRepository questionRepository;
 
 	List<Question> nonVoted=new ArrayList<Question>();
+	Map<Question,Integer> Voted=new TreeMap<Question,Integer>();
 	
 
 	@GetMapping(value="/vote/{top.id}")
@@ -70,6 +73,9 @@ public class VoteController {
 	@PostMapping(value="/Addvote/{id}")
 	public void Vote(@PathVariable(value="id") String id, Model model){
 		
+		nonVoted.remove(1);
+		nonVoted.remove(0);
+
 		Integer id_question = Integer.parseInt(id);
 		
         questionRepository.update(id_question);
