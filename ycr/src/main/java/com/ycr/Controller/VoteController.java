@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.ycr.Model.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,8 @@ public class VoteController {
 	private CategorieDao categorieDao;
 	@Autowired
 	private QuestionRepository questionRepository;
+
+	List<Question> nonVoted=new ArrayList<Question>();
 	
 
 	@GetMapping(value="/vote/{top.id}")
@@ -41,8 +45,14 @@ public class VoteController {
 		Top top = topDao.findById(id_top).get();
 		
 		List<Question> questionList = questionRepository.questionByIdTop(id_top);
+		nonVoted.clear();
+		for (Question each : questionList) {
+			nonVoted.add(each);
+		}
 
-		CreateDTO createDTO = new CreateDTO(top, questionList);
+		Collections.shuffle(nonVoted);
+
+		CreateDTO createDTO = new CreateDTO(top, nonVoted);
 		model.addAttribute("createDTO",createDTO);
 		model.addAttribute("categorie", categorieDao.findAll());
 

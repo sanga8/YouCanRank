@@ -26,11 +26,20 @@
           
           <div th:text="*{createDTO.top.titre}"></div>
           
-          <div th:each="question, itemStat : *{createDTO.questionList}">
+         <!--<div th:each="question, itemStat : *{createDTO.questionList}">
             <div><p th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
             <div th:id="*{createDTO.questionList[__${itemStat.index}__].id}"><p th:text="*{createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
             <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'" ></button>
-          </div>
+          </div>-->
+
+          <div><p th:text="*{createDTO.questionList[0].titre}" ></p></div>
+          <div th:id="*{createDTO.questionList[0].id}"><p th:text="*{createDTO.questionList[0].link}" ></p></div>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>
+
+          <div><p th:text="*{createDTO.questionList[1].titre}" ></p></div>
+          <div th:id="*{createDTO.questionList[1].id}"><p th:text="*{createDTO.questionList[1].link}" ></p></div>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>
+
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>
 
