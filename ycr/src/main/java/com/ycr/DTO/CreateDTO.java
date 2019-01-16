@@ -14,6 +14,10 @@ public class CreateDTO {
         this.QuestionList = QuestionList;
     }
 
+    public CreateDTO() {
+        
+    }
+
     public Top getTop() {
         return this.Top;
     }

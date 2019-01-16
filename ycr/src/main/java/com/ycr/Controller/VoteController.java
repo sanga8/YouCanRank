@@ -37,7 +37,8 @@ public class VoteController {
 	private QuestionRepository questionRepository;
 
 	List<Question> nonVoted=new ArrayList<Question>();
-	Map<Question,Integer> Voted=new TreeMap<Question,Integer>();
+	Map<Question,Integer> voted=new TreeMap<Question,Integer>();
+	CreateDTO createDTO = new CreateDTO();
 	
 
 	@GetMapping(value="/vote/{top.id}")
@@ -55,7 +56,9 @@ public class VoteController {
 
 		Collections.shuffle(nonVoted);
 
-		CreateDTO createDTO = new CreateDTO(top, nonVoted);
+		createDTO.setTop(top);
+		createDTO.setQuestionList(nonVoted);
+		
 		model.addAttribute("createDTO",createDTO);
 		model.addAttribute("categorie", categorieDao.findAll());
 
@@ -70,15 +73,27 @@ public class VoteController {
 
 	}
 
-	@PostMapping(value="/Addvote/{id}")
-	public void Vote(@PathVariable(value="id") String id, Model model){
+	@PostMapping(value="/Addvote/{id}/{i}")
+	public void Vote(@PathVariable(value="id") String id,@PathVariable(value="i")  String i, Model model){
 		
+		Integer id_voted_true = Integer.parseInt(i);
+		voted.put(nonVoted.get(id_voted_true), 1);
+
+		Integer id_voted_false = Math.abs(id_voted_true-1);
+		voted.put(nonVoted.get(id_voted_false), 0);
+
 		nonVoted.remove(1);
 		nonVoted.remove(0);
 
 		Integer id_question = Integer.parseInt(id);
 		
-        questionRepository.update(id_question);
+		questionRepository.update(id_question);
+		
+		createDTO.setQuestionList(nonVoted);
+		model.addAttribute("createDTO",createDTO);
+		model.addAttribute("categorie", categorieDao.findAll());
+
+		//return "vote";
             
 	}
 }

@@ -4,12 +4,12 @@
   <head th:insert="fragments/header.html :: head"> </head>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script type="text/javascript">
-    function doAjax(id,int){
+    function doAjax(id,i){
       console.log(id)
-      console.log(int)
+      console.log(i)
       $.ajax({
         type:"POST",
-        url:'/Addvote/'+id+'',
+        url:'/Addvote/'+id+'/'+i,
         data: 'id='+id,
         success:console.log('fonctionne')
       });
