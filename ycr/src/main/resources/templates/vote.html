@@ -4,45 +4,156 @@
   <head th:insert="fragments/header.html :: head"> </head>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script type="text/javascript">
-    function doAjax(id,i){
+    function doAjax(id){
       console.log(id)
-      console.log(i)
       $.ajax({
         type:"POST",
-        url:'/Addvote/'+id+'/'+i,
+        url:'/Addvote/'+id,
         data: 'id='+id,
-        success:console.log('fonctionne')
+        success:document.getElementById(id).style.visibility='hidden'
       });
     }
   
   </script>
 
-  <body>
+  <body onload="notif();">
       <header th:insert="fragments/header.html :: header"> </header>
 
         <div th:insert="fragments/header.html :: div.sidenav"></div>
 
         <div id="corps" class="no">
           <!--code here-->
-          
-          <div th:text="*{createDTO.top.titre}"></div>
-          
-         <!--<div th:each="question, itemStat : *{createDTO.questionList}">
-            <div><p th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
-            <div th:id="*{createDTO.questionList[__${itemStat.index}__].id}"><p th:text="*{createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
-            <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'" ></button>
-          </div>-->
 
-          <div><p th:text="*{createDTO.questionList[0].titre}" ></p></div>
+          <div class="container">
+              <div class="jumbotron">
+                  <img src="../images/icon.png" height="45px"><h1 class="display-4">Top : <span th:text="*{createDTO.top.titre}"></span></h1>     
+              </div> 
+          </div>
+
+            <div class="cont">
+              <div class="row">
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 0}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 1}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 2}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 3}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 4}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 5}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 6}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 7}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 8}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div  class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 9}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 10}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 11}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+
+                  <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
+                  th:if="${itemStat.index == 12}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
+                   th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
+                   th:style="'background-image: url('+ *{createDTO.questionList[__${itemStat.index}__].link} + ')'" >
+                    <div class="text" th:text="*{createDTO.questionList[__${itemStat.index}__].titre}" ></div>
+                  </div>
+              </div>
+            </div>
+
+              
+              
+          
+          
+
+          <!--<div><p th:text="*{createDTO.questionList[0].titre}" ></p></div>
           <div th:id="*{createDTO.questionList[0].id}"><p th:text="*{createDTO.questionList[0].link}" ></p></div>
-          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[0].id} + ',0);'" ></button>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[0].id} + ');'" ></button>
 
           <div><p th:text="*{createDTO.questionList[1].titre}" ></p></div>
           <div th:id="*{createDTO.questionList[1].id}"><p th:text="*{createDTO.questionList[1].link}" ></p></div>
-          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ',1);'" ></button>
+          <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>-->
 
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>
+      <script>
+        function notif() {
+          alert("Choisissez vos éléments préférés");
+        }
+        
+      </script>
 
   </body>
 </html>

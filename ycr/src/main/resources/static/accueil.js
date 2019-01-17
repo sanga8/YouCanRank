@@ -62,5 +62,8 @@ function hideShow(i) {
 
 function result(){
   var x = document.getElementById("topSearch");
-  window.location.href = "/search/"+x.value;
+  if(x.value!=""){
+    window.location.href = "/search/"+x.value;
+  }
+  
 }

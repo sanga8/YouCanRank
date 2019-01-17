@@ -16,7 +16,7 @@
             </div>
         <div th:if="${not #lists.isEmpty(top)}">
 
-          <div class="box" th:each="top : ${top}">
+          <div class="top" th:each="top : ${top}">
             <img th:src="@{${top.link}}"/>
             <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.id}__}"></a>
             <div th:text="'Points '+${top.point}"></div>
