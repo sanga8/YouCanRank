@@ -4,7 +4,6 @@
     <head th:fragment="head">
         <meta charset="utf-8">
         <title>YouCanRank</title>
-        <link rel="icon" type="image/png" href="icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -43,13 +42,11 @@
                           <!--<This content is only shown to authenticated users.>-->
                               <a th:href="@{/logout}">Log out</a>
                               <a href="/create">CREATE</a>
-                              
-                              <span th:utext="${userName}"></span>
-
+                        
                         </div>           
                   </div>
-                  <div class="user col-sm-1">
-                    <button type="submit"><i class="far fa-user"></i></button>
+                  <div class="user col-sm-1" sec:authorize="isAuthenticated()">
+                    <button type="button"><a href="/myaccount" class="far fa-user"></a></button>
                   </div>
               </nav>
     </header>

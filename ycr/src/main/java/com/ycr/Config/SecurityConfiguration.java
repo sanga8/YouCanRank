@@ -45,7 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
  @Override
  protected void configure(HttpSecurity http) throws Exception{
   http
-   .csrf().disable()
+   .authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest().permitAll()
+   .and().csrf().disable()
    .formLogin().loginPage("/login").loginProcessingUrl("/login").failureUrl("/login?error=true")
    .defaultSuccessUrl("/index")
    .usernameParameter("username")
@@ -55,7 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
    .logoutSuccessUrl("/")
    .and().rememberMe()
    .tokenRepository(persistentTokenRepository())
-   .tokenValiditySeconds(60*60);
+   .tokenValiditySeconds(3600*3600);
  }
  
  @Bean

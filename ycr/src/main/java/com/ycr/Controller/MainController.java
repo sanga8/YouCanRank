@@ -3,6 +3,7 @@ package com.ycr.Controller;
 import com.ycr.Model.User;
 import com.ycr.Service.UserService;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class MainController {
 	private TopDao topDao;
 	@Autowired
 	private CategorieDao categorieDao;
+
 
 	@GetMapping(value={"","/index","/"})
 	public String index(Model model) {
@@ -120,5 +122,12 @@ public class MainController {
 		return "resultat";
 	}
 	
+
+	@GetMapping(value="/myaccount")
+    public String myaccount(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("user", authentication.getPrincipal());
+        return "myaccount";
+    }
 
 }
