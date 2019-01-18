@@ -67,3 +67,11 @@ function result(){
   }
   
 }
+
+function num(){
+  var numero = affichage.getElementsByClassName("numero").length;
+  for(i=0;i<numero;i++){
+    affichage.getElementsByClassName("numero")[i].textContent=i+1;
+  }
+  
+}
