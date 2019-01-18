@@ -3,33 +3,32 @@
 
   <head th:insert="fragments/header.html :: head"> </head>
 
-  <body>
+  <body onload="num()"> 
       <header th:insert="fragments/header.html :: header"> </header>
 
         <div th:insert="fragments/header.html :: div.sidenav"></div>
 
         <div id="corps" class="no">
+
             <div class="container">
                 <div class="jumbotron">
                     <img src="../images/icon.png" height="45px"><h1 class="display-4">Top<span> Rankings</span></h1>     
                 </div> 
             </div>
-        <div th:if="${not #lists.isEmpty(top)}">
 
-          <div class="top" th:each="top : ${top}">
-            <img th:src="@{${top.link}}"/>
-            <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.id}__}"></a>
-            <div th:text="'Points '+${top.point}"></div>
-          </div>
+        <div id="affichage" th:if="${not #lists.isEmpty(top)}">
 
-          <div class="container classement">
-            <div class="numero"></div>
+          <div th:each="top : ${top}" class="container classement">
+            <div class="numero display-5">1</div>
             <div class="info">
-              <img src="" >
+              <div>
+                  <div th:style="'background-image: url('+ ${top.link} + ')'"></div>
+              </div>
+              <div><p class="display-5" th:text="'Top '+${top.titre}"></p></div>
             </div>
             <div class="action">
-                <i class="fas fa-poll"></i>
-                <i class="fas fa-person-booth"></i>
+                <a th:href="@{/topresult/__${top.id}__}" class="far fa-eye"></a>
+                <a th:href="@{/vote/__${top.id}__}">Vote</a>
             </div>
           </div>
 
