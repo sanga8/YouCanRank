@@ -26,6 +26,10 @@ public interface TopDao extends CrudRepository<Top,Integer> {
 	@Query(value= "SELECT * FROM Top where titre like %:keyword%",nativeQuery = true)
 	public List<Top> search(@Param("keyword") String keyword);
 
+	@Query(value = "SELECT * FROM Top WHERE id_creator = :id_creator", 
+    nativeQuery = true)
+    List<Top> topByIdCreator(@Param ("id_creator") Integer id_creator);
+
 
 
 }

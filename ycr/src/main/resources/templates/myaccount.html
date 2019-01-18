@@ -14,14 +14,34 @@
                          <p class="alert alert-danger" role="alert" th:if="${msg2}"th:utext="${msg2}"></p> 
                        
                         <p th:utext="${username}"></p>
-                        <p th:utext="${details}"></p>
 
+                        <div>My Top</div>    
+
+                        <div th:if="${not #lists.isEmpty(topcreator)}">
+
+                            <div class="box" th:each="topcreator : ${topcreator}">
+                              <img th:src="@{${topcreator.link}}"/>
+                              <a th:text="'Titre '+${topcreator.titre}" th:href="@{/topresult/__${topcreator.id}__}"></a>
+                              <div th:text="'Points '+${topcreator.point}"></div>
+                            </div>
+                  
+                        </div>
+
+
+
+
+                        <div>History</div> 
+
+                        
+
+
+                        <div>User Information</div>
                         <form class="form-horizontal" role="form" method="POST" th:action="@{/changePassword}">
                             <input type="text" name="oldPassword" class="form-control" id="oldPassword" placeholder="Password">
                             <input type="text" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
                             <button type="submit" class="submit" align="center">Change Password</button>
                         </form>
-                        
+
                         <form class="form-horizontal" role="form" method="POST" th:action="@{/changeEmail}">
                             <p th:utext="${usermail}">Current email </p>
                             <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="New Email">
@@ -34,7 +54,7 @@
                         </div>
                     
                     <footer th:insert="fragments/header.html :: footer"> </footer>
-        
+                        
                 </body>
           
     </html>

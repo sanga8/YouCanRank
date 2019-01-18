@@ -114,7 +114,6 @@ public class MainController {
 		
 	}
 
-
 	@GetMapping(value="/search/{top.titre}")
 	public String toCreate(@PathVariable(value="top.titre") String titre, Model model) {
 
@@ -130,6 +129,10 @@ public class MainController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = userRepository.findByUsername(authentication.getName());
 		
+		List<Top> user_top = topDao.topByIdCreator(user.getId());
+
+
+		model.addAttribute("topcreator",user_top);
 		model.addAttribute("username",user.getUsername());
 		model.addAttribute("usermail",user.getEmail());
         return "myaccount";

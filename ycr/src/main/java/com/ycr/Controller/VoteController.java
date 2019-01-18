@@ -1,10 +1,13 @@
 package com.ycr.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,12 +47,28 @@ public class VoteController {
 	private CategorieDao categorieDao;
 	@Autowired
 	private QuestionRepository questionRepository;
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private UserTopRepository userTopRepository;
 
 
 	@GetMapping(value="/vote/{top.id}")
 	public String Getcreate(@PathVariable(value="top.id") String id, Model model) {
-
 		Integer id_top = Integer.parseInt(id);
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userRepository.findByUsername(authentication.getName());
+
+		List<UserTop> listUserTop = userTopRepository.topVotedByThisUser(id_top);
+
+		boolean check=false;
+		for (int i=0; i<listUserTop.size(); ++i){
+			if(user.getId() == listUserTop.get(i).getId_user()){
+				check = true;
+			}
+		}
+		if(check = true){
 
 		Top top = topDao.findById(id_top).get();
 		
@@ -62,6 +81,8 @@ public class VoteController {
 		model.addAttribute("categorie", categorieDao.findAll());
 
 		return "vote";
+	}
+	else {return "error";}
 	}
 
 

@@ -73,9 +73,14 @@ CREATE TABLE IF NOT EXISTS `myrank`.`user` (
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `myrank`.`ip` (
+
+
+
+
+CREATE TABLE IF NOT EXISTS `myrank`.`UserTop` (
   id int NOT NULL AUTO_INCREMENT,
-  ip VARCHAR(100) NOT NULL,
+  id_user int not null,
+  id_top int not null,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -87,6 +92,10 @@ CREATE TABLE  `persistent_logins` (
   `last_used` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`series`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
 
 CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   id int NOT NULL AUTO_INCREMENT,
