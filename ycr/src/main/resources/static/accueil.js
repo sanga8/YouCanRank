@@ -72,6 +72,15 @@ function num(){
   var numero = affichage.getElementsByClassName("numero").length;
   for(i=0;i<numero;i++){
     affichage.getElementsByClassName("numero")[i].textContent=i+1;
+    if(i==0){
+      document.getElementsByClassName("container classement")[0].style.backgroundColor="#E9BE00";
+    }
+    else if(i==1){
+      document.getElementsByClassName("container classement")[1].style.backgroundColor="#B4CFFF";
+    }
+    else if(i==2){
+      document.getElementsByClassName("container classement")[2].style.backgroundColor="#EB9049";
+    }
   }
   
 }

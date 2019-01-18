@@ -27,8 +27,8 @@
               <div><p class="display-5" th:text="'Top '+${top.titre}"></p></div>
             </div>
             <div class="action">
-                <a class="fas fa-poll"></a>
-                <a class="fas fa-person-booth" th:href="@{/vote/__${top.id}__}"></a>
+                <a th:href="@{/topresult/__${top.id}__}" class="far fa-eye"></a>
+                <a th:href="@{/vote/__${top.id}__}">Vote</a>
             </div>
           </div>
 
