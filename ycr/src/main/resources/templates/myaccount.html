@@ -10,14 +10,17 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
+                         <p class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></p>
+                         <p class="alert alert-danger" role="alert" th:if="${msg2}"th:utext="${msg2}"></p> 
+                       
+                        <p th:utext="${username}"></p>
+                        <p th:utext="${details}"></p>
 
-                            
-                            
-                            
-                            <div th:text="${user}"></div>
-
-
-
+                        <form class="form-horizontal" role="form" method="POST" th:action="@{/changePassword}">
+                            <input type="text" name="oldPassword" class="form-control" id="oldPassword" placeholder="Password">
+                            <input type="text" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
+                            <button type="submit" class="submit" align="center">Change Password</button>
+                        </form>
 
 
 

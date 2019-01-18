@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html  xmlns:th="http://www.thymeleaf.org">
+          
+                <head th:insert="fragments/header.html :: head"> </head>
+                
+                <body>
+                    <header th:insert="fragments/header.html :: header"> </header>
+        
+                        <div th:insert="fragments/header.html :: div.sidenav"></div>
+                
+                        <div id="corps" class="no">
+                            <!--code here-->
+                         <p class="alert alert-danger" role="alert" th:if="${msg}"> Vous ne pouvez pas accéder à ce contenu</p>
+                         <a href="index"> Home </a>
+                           
+                        </div>
+                    
+                    <footer th:insert="fragments/header.html :: footer"> </footer>
+        
+                </body>
+          
+    </html>

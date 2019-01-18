@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import com.ycr.DAO.CategorieDao;
 import com.ycr.DAO.TopDao;
+import com.ycr.DAO.UserRepository;
 import com.ycr.Model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class MainController {
 	private TopDao topDao;
 	@Autowired
 	private CategorieDao categorieDao;
+	@Autowired
+	private UserRepository userRepository;
 
 
 	@GetMapping(value={"","/index","/"})
@@ -51,14 +54,13 @@ public class MainController {
 		return "index";
 	}
 
-
- 
 	
 	@GetMapping(value="/login")
 	public String login(Model model) {
 		model.addAttribute("categorie", categorieDao.findAll());
 		return "login";
 	   }
+
 
 	@GetMapping(value="/register")
 	public String register(Model model) {
@@ -75,10 +77,8 @@ public class MainController {
   	User userExists = userService.findUserByUsername(user.getUsername());
   
   	if(userExists != null) {
-   	bindingResult.rejectValue("username", "error.user", "This username already exists!");
-	}
-
-  	if(bindingResult.hasErrors()) {
+	   model.addAttribute("msg2", "This username is already used");
+	   return "register";
 	}
 
 	else {
@@ -104,6 +104,7 @@ public class MainController {
 		return "categorie";
 	}
 
+
 	@GetMapping(value="/getTop")
 	@ResponseBody
 	List<Top> getTags(@RequestParam String titre) {
@@ -112,6 +113,7 @@ public class MainController {
 		return topDao.search(titre);
 		
 	}
+
 
 	@GetMapping(value="/search/{top.titre}")
 	public String toCreate(@PathVariable(value="top.titre") String titre, Model model) {
@@ -125,9 +127,30 @@ public class MainController {
 
 	@GetMapping(value="/myaccount")
     public String myaccount(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("user", authentication.getPrincipal());
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userRepository.findByUsername(authentication.getName());
+		
+		model.addAttribute("details",authentication.getDetails());
+		model.addAttribute("username",user.getUsername());
+		
         return "myaccount";
-    }
+	}
+	
+	@PostMapping(value="/changePassword")
+	public String changeUserPassword(String newPassword, String oldPassword, Model model){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userRepository.findByUsername(authentication.getName());
+
+		if (userService.encode().matches(oldPassword, user.getPassword()) ){
+		userService.changePassword(user, newPassword);
+		model.addAttribute("msg", "Your password has been changed successfully!");
+		return "myaccount";
+		}
+		else{
+			model.addAttribute("msg2", "Your current password is incorrect");
+			return "myaccount";
+		}
+
+	}
 
 }
