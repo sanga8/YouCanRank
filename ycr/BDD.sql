@@ -67,8 +67,15 @@ ENGINE = InnoDB;*/
 CREATE TABLE IF NOT EXISTS `myrank`.`user` (
   id int NOT NULL AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   `active` int(11) default NULL,
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `myrank`.`ip` (
+  id int NOT NULL AUTO_INCREMENT,
+  ip VARCHAR(100) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -87,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `myrank`.`top` (
   point INT(11) NULL DEFAULT 0,
   link VARCHAR(2083),
   id_categorie int not null,
+  id_creator int not null,
   PRIMARY KEY (id),
   FOREIGN KEY (id_categorie) REFERENCES Categorie(id) ON DELETE CASCADE)
 ENGINE = InnoDB;

@@ -25,6 +25,9 @@ public class User {
 	@Column(name = "username")
 	private String username;
 
+	@Column(name = "email")
+	private String email;
+
 	@Column(name = "password")
 	private String password;
 
@@ -62,7 +65,18 @@ public class User {
 		return active;
 	   }
 	  
-	   public void setActive(int active) {
+	public void setActive(int active) {
 		this.active = active;
-	   }
+	}
+
+	public String getEmail()
+	{
+		return this.email;
+	}
+   
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+   
 }

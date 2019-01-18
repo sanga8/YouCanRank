@@ -16,18 +16,26 @@ public class Top{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	private Integer id_creator;
 
 	private String titre;
 
 	private String link;
 
-	private Integer point =0;
+	private Integer point = 0;
 
 	private Integer id_categorie;
 
-	public Integer getId()
-	{
+	public Integer getId() {
 		return this.id;
+	}
+
+	public Integer getId_creator() {
+		return id_creator;
+	}
+
+	public void setId_creator(Integer id_creator) {
+		this.id_creator = id_creator;
 	}
 
 	public void setId(Integer id)

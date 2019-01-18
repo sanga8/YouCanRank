@@ -14,4 +14,5 @@ public interface UserService {
 
  public BCryptPasswordEncoder encode();
 
+ public void changeEmail(User user, String email);
 }

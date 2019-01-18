@@ -21,6 +21,12 @@
                             <input type="text" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
                             <button type="submit" class="submit" align="center">Change Password</button>
                         </form>
+                        
+                        <form class="form-horizontal" role="form" method="POST" th:action="@{/changeEmail}">
+                            <p th:utext="${usermail}">Current email </p>
+                            <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="New Email">
+                            <button type="submit" class="submit" align="center">Change Email</button>
+                        </form>
 
 
 
