@@ -4,14 +4,32 @@
   <head th:insert="fragments/header.html :: head"> </head>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script type="text/javascript">
+    var vote=0;
+    
+    
     function doAjax(id){
-      console.log(id)
-      $.ajax({
+      var size = document.getElementsByClassName("box").length;
+      console.log(id);
+      console.log(vote);
+      console.log(size);
+      vote++;
+    
+        $.ajax({
         type:"POST",
         url:'/Addvote/'+id,
         data: 'id='+id,
         success:document.getElementById(id).style.visibility='hidden'
-      });
+        });
+
+      if(vote<size/2){
+        console.log('pas fini');
+      }
+      else{
+        var idtop  = document.getElementById("top").getAttribute("value"); 
+        window.location.href = "/topresult/"+idtop;
+      }
+      
+      
     }
   
   </script>
@@ -24,14 +42,14 @@
         <div id="corps" class="no">
           <!--code here-->
 
-          <div class="container">
+          <div id="top" class="container" th:value="*{createDTO.top.id}">
               <div class="jumbotron">
                   <img src="../images/icon.png" height="45px"><h1 class="display-4">Top : <span th:text="*{createDTO.top.titre}"></span></h1>     
               </div> 
           </div>
 
             <div class="cont">
-              <div class="row">
+              <div class="row"> 
                   <div class="col-sm-3 box" th:each="question, itemStat : *{createDTO.questionList}"
                   th:if="${itemStat.index == 0}" th:id="*{createDTO.questionList[__${itemStat.index}__].id}"
                    th:onclick="'javascript:doAjax(' + *{createDTO.questionList[__${itemStat.index}__].id} + ');'"
