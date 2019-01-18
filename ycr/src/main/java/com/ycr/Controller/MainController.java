@@ -130,9 +130,8 @@ public class MainController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = userRepository.findByUsername(authentication.getName());
 		
-		model.addAttribute("details",authentication.getDetails());
 		model.addAttribute("username",user.getUsername());
-		
+		model.addAttribute("usermail",user.getEmail());
         return "myaccount";
 	}
 	
@@ -151,6 +150,15 @@ public class MainController {
 			return "myaccount";
 		}
 
+	}
+	@PostMapping(value="/changeEmail")
+	public String changeUserEmail(String newEmail, Model model){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userRepository.findByUsername(authentication.getName());
+
+		userService.changeEmail(user, newEmail);
+		model.addAttribute("msg", "Your email has been changed successfully!");
+		return "myaccount";
 	}
 
 }

@@ -39,6 +39,13 @@ public class UserServiceImpl implements UserService {
   userRepository.save(user);
  }
 
+ 
+ @Override
+ public void changeEmail(User user, String email) {
+  user.setEmail(email);
+  userRepository.save(user);
+ }
+
  @Override
  public BCryptPasswordEncoder encode(){
     return bCryptPasswordEncoder;

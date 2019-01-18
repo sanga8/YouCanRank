@@ -1,7 +1,11 @@
 package com.ycr.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +33,8 @@ public class TopController {
 	private CategorieDao categorieDao;
 	@Autowired
 	private QuestionRepository questionRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 
 	@GetMapping(value="/create")
@@ -76,6 +82,12 @@ public class TopController {
     @PostMapping(value = "/create")
 	public String Register(CreateDTO createDTO, Model model) {
 
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userRepository.findByUsername(authentication.getName());
+
+		int id_creator = user.getId();
+
+		createDTO.getTop().setId_creator(id_creator);
 		topDao.save(createDTO.getTop());
 
 		for (int i=0; i<13;++i){
@@ -86,7 +98,6 @@ public class TopController {
 		}
 
 		return "index";
-
 	}
 
 
