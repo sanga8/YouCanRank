@@ -19,6 +19,7 @@ nav{
 #corps{
   margin-top: 60px;
   background-image: url('../images/background.png');
+  padding-bottom: 15vh;
 }
 
 body{
@@ -160,7 +161,7 @@ nav .search-container button{
 }
 .container{
   padding-right: 40px;
-    padding-left: 40px;
+  padding-left: 40px;
 }
 .jumbotron img{
   margin-left: 2rem;
@@ -219,3 +220,49 @@ nav .search-container button{
   padding: 10px;
   font-size: 1.5rem;
 }
+
+.classement{
+  display: flex;
+  align-items: stretch;
+  width: 70%;
+  background-color:#4C7681;
+  height: 20vh;
+  border-radius: .3rem;
+  padding: 0;
+  border: 2px solid white;
+}
+
+.numero{
+  flex-grow: 1;
+  border-top-left-radius: .3rem;
+  border-bottom-left-radius: .3rem;
+}
+.info{
+  flex-grow: 8;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+.action{
+  flex-grow: 1;
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+.action i {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action i:nth-child(1){
+  background-color: #689F38;
+}
+
+.action i:nth-child(2){
+  background-color: #D84315;
+}
+
