@@ -12,10 +12,10 @@
 
          <div th:text="*{createDTO.top.titre}"></div>
 
-         <div th:each="question, itemStat : {createDTO.questionList}">
-            <div><p th:text="{createDTO.questionList[${itemStat.index}].point}" ></p></div>
-            <div><p th:text="{createDTO.questionList[${itemStat.index}].titre}" ></p></div>
-            <div th:id="{createDTO.questionList[${itemStat.index}].id}"><p th:text="*{createDTO.questionList[${itemStat.index}].link}" ></p></div>
+         <div th:each="question, itemStat : *{createDTO.questionList}">
+            <div><p th:text="${createDTO.questionList[__${itemStat.index}__].point}" ></p></div>
+            <div><p th:text="${createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
+            <div th:id="${createDTO.questionList[__${itemStat.index}__].id}"><p th:text="${createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
          </div>
 
 
