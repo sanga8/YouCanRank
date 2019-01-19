@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 
 
 
-CREATE TABLE IF NOT EXISTS `myrank`.`UserTop` (
+CREATE TABLE IF NOT EXISTS `myrank`.`User_Top` (
   id int NOT NULL AUTO_INCREMENT,
   id_user int not null,
   id_top int not null,

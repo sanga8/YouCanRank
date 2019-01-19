@@ -56,33 +56,36 @@ public class VoteController {
 	@GetMapping(value="/vote/{top.id}")
 	public String Getcreate(@PathVariable(value="top.id") String id, Model model) {
 		Integer id_top = Integer.parseInt(id);
-
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = userRepository.findByUsername(authentication.getName());
 
-		List<UserTop> listUserTop = userTopRepository.topVotedByThisUser(id_top);
+		List<UserTop> userTopExist = userTopRepository.findAll();
+		boolean check=true;
 
-		boolean check=false;
-		for (int i=0; i<listUserTop.size(); ++i){
-			if(user.getId() == listUserTop.get(i).getId_user()){
-				check = true;
-			}
-		}
-		if(check = true){
+		UserTop UT = new UserTop();
+		UT.setId_top(id_top);
+		UT.setId_user(user.getId());
+
+		for(int i=0; i< userTopExist.size();++i) {
+		if(userTopExist.get(i).getId_user() == UT.getId_user() && userTopExist.get(i).getId_top() == UT.getId_top())
+		{check = false;}}
+
+		if(check == true){
+		userTopRepository.save(UT);
 
 		Top top = topDao.findById(id_top).get();
 		
 		List<Question> questionList = questionRepository.questionByIdTop(id_top);
-		
+
+
 		createDTO.setTop(top);
 		createDTO.setQuestionList(questionList);
 		
 		model.addAttribute("createDTO",createDTO);
 		model.addAttribute("categorie", categorieDao.findAll());
-
 		return "vote";
-	}
-	else {return "error";}
+		}
+		else {return "alreadyvoted";}
 	}
 
 

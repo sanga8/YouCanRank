@@ -96,11 +96,7 @@ public class TopController {
 			questionRepository.save(createDTO.getQuestionList().get(i));
 			}
 		}
-
-
-
-
-		return "index";
+		return "redirect:index";
 	}
 
 
