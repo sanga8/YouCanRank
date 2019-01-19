@@ -41,7 +41,7 @@
 
         <div id="corps" class="no">
           <!--code here-->
-
+          
           <div id="top" class="container" th:value="*{createDTO.top.id}">
               <div class="jumbotron">
                   <img src="../images/icon.png" height="45px"><h1 class="display-4">Top : <span th:text="*{createDTO.top.titre}"></span></h1>     
@@ -163,7 +163,7 @@
           <div><p th:text="*{createDTO.questionList[1].titre}" ></p></div>
           <div th:id="*{createDTO.questionList[1].id}"><p th:text="*{createDTO.questionList[1].link}" ></p></div>
           <button th:onclick="'javascript:doAjax(' + *{createDTO.questionList[1].id} + ');'" ></button>-->
-
+        
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>
       <script>

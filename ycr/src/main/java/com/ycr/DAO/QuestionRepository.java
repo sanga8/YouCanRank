@@ -18,15 +18,13 @@ import org.springframework.data.repository.query.Param;
 
 public interface QuestionRepository extends CrudRepository<Question,Integer> {
 
-	@Query(value = "SELECT * FROM Question WHERE id_top = :id_top ORDER BY Point DESC; ", 
+    @Query(value = "SELECT * FROM Question WHERE id_top = :id_top ORDER BY Point DESC; ", 
     nativeQuery = true)
     List<Question> questionByIdTopQuestions(@Param ("id_top") Integer id_top);
 
-	@Query(value = "SELECT * FROM Question WHERE id_top = :id_top", 
+    @Query(value = "SELECT * FROM Question WHERE id_top = :id_top", 
     nativeQuery = true)
     List<Question> questionByIdTop(@Param ("id_top") Integer id_top);
-
-
 
 
     @Modifying

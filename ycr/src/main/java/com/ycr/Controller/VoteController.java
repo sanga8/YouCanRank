@@ -55,6 +55,7 @@ public class VoteController {
 
 	@GetMapping(value="/vote/{top.id}")
 	public String Getcreate(@PathVariable(value="top.id") String id, Model model) {
+		
 		Integer id_top = Integer.parseInt(id);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = userRepository.findByUsername(authentication.getName());
@@ -99,21 +100,21 @@ public class VoteController {
 
 
 	@GetMapping(value="/topresult/{top.id}")
-	public String getResult(@PathVariable(value="top.id") String id, Model model) {
+    public String getResult(@PathVariable(value="top.id") String id, Model model) {
 
-		Integer id_top = Integer.parseInt(id);
+        Integer id_top = Integer.parseInt(id);
 
-		Top top = topDao.findById(id_top).get();
-		
-		List<Question> questionList = questionRepository.questionByIdTopQuestions(id_top);
-		
-		createDTO.setTop(top);
-		createDTO.setQuestionList(questionList);
-		
-		
-		model.addAttribute("createDTO",createDTO);
-		model.addAttribute("categorie", categorieDao.findAll());
+        Top top = topDao.findById(id_top).get();
 
-		return "topresult";
-	}
+        List<Question> questionList = questionRepository.questionByIdTopQuestions(id_top);
+
+        createDTO.setTop(top);
+        createDTO.setQuestionList(questionList);
+
+
+        model.addAttribute("createDTO",createDTO);
+        model.addAttribute("categorie", categorieDao.findAll());
+
+        return "topresult";
+    }
 }
