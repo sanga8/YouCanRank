@@ -2,7 +2,7 @@
     <html  xmlns:th="http://www.thymeleaf.org">
           
                 <head th:insert="fragments/header.html :: head"> </head>
-                
+                <link rel="stylesheet" href="../form.css" />
                 <body>
                     <header th:insert="fragments/header.html :: header"> </header>
         
@@ -10,52 +10,71 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                         <p class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></p>
-                         <p class="alert alert-danger" role="alert" th:if="${msg2}"th:utext="${msg2}"></p> 
-                       
-                        <p th:utext="${username}"></p>
-
-                        <div>My Top</div>    
-
-                        <div th:if="${not #lists.isEmpty(topcreator)}">
-
-                            <div class="box" th:each="topcreator : ${topcreator}">
-                              <img th:src="@{${topcreator.link}}"/>
-                              <a th:text="'Titre '+${topcreator.titre}" th:href="@{/topresult/__${topcreator.id}__}"></a>
-                              <div th:text="'Points '+${topcreator.point}"></div>
-                            </div>
-                  
-                        </div>
+                            <div class="login-page"> 
+                                    <div class="form">
+                                            <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></div>
+                                            <div class="alert alert-danger" role="alert" th:if="${msg2}"th:utext="${msg2}"></div> 
+                                            <div th:utext="'User Information : '+${username}"></div>
+                                            <form class="form-horizontal" role="form" method="POST" th:action="@{/changePassword}">
+                                                <input type="text" name="oldPassword" class="form-control" id="oldPassword" placeholder="Password">
+                                                <input type="text" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
+                                                <button type="submit" class="submit" align="center">Change Password</button>
+                                            </form>
                     
-                        <div>History</div> 
-
-                        <div th:if="${not #lists.isEmpty(votedtop)}">
-
-                            <div class="box" th:each="votedtop : ${votedtop}">
-                              <img th:src="@{${votedtop.link}}"/>
-                              <a th:text="'Titre '+${votedtop.titre}" th:href="@{/topresult/__${votedtop.id}__}"></a>
-                              <div th:text="'Points '+${votedtop.point}"></div>
+                                            <form class="form-horizontal" role="form" method="POST" th:action="@{/changeEmail}">
+                                                <p th:utext="${usermail}">Current email </p>
+                                                <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="New Email">
+                                                <button type="submit" class="submit" align="center">Change Email</button>
+                                            </form>
+                                    </div>
                             </div>
-                  
+
+                        <div class="container">
+                                    <div class="jumbotron">
+                                        <img src="../images/icon.png" height="45px"><h1 class="display-4">Mes <span>Top</span></h1>     
+                                    </div> 
+                        </div>  
+                        <div id="affichage" th:if="${not #lists.isEmpty(topcreator)}">
+
+                                <div th:each="topcreator : ${topcreator}" class="container classement">
+                                  <div class="numero display-5" th:text="${topcreator.point}"></div>
+                                  <div class="info">
+                                    <div>
+                                        <div th:style="'background-image: url('+ ${topcreator.link} + ')'"></div>
+                                    </div>
+                                    <div><p class="display-5" th:text="'Top '+${topcreator.titre}"></p></div>
+                                  </div>
+                                  <div class="action" >
+                                      <a style="border-bottom-right-radius: 1rem;" th:href="@{/topresult/__${topcreator.id}__}" class="far fa-eye"></a>
+                                  </div>
+                                </div>
+                      
+                        </div> 
+                    
+                        <div class="container">
+                                <div class="jumbotron">
+                                    <img src="../images/icon.png" height="45px"><h1 class="display-4">Mon <span>historique</span></h1>     
+                                </div> 
+                        </div>
+
+                        <div id="affichage" th:if="${not #lists.isEmpty(votedtop)}">
+
+                                <div th:each="votedtop : ${votedtop}" class="container classement">
+                                  <div class="numero display-5" th:text="${votedtop.point}"></div>
+                                  <div class="info">
+                                    <div>
+                                        <div th:style="'background-image: url('+ ${votedtop.link} + ')'"></div>
+                                    </div>
+                                    <div><p class="display-5" th:text="'Top '+${votedtop.titre}"></p></div>
+                                  </div>
+                                  <div class="action" >
+                                      <a style="border-bottom-right-radius: 1rem;" th:href="@{/topresult/__${votedtop.id}__}" class="far fa-eye"></a>
+                                  </div>
+                                </div>
+                      
                         </div>
 
 
-                        <div>User Information</div>
-                        <form class="form-horizontal" role="form" method="POST" th:action="@{/changePassword}">
-                            <input type="text" name="oldPassword" class="form-control" id="oldPassword" placeholder="Password">
-                            <input type="text" name="newPassword" class="form-control" id="newPassword" placeholder="New Password">
-                            <button type="submit" class="submit" align="center">Change Password</button>
-                        </form>
-
-                        <form class="form-horizontal" role="form" method="POST" th:action="@{/changeEmail}">
-                            <p th:utext="${usermail}">Current email </p>
-                            <input type="email" name="newEmail" class="form-control" id="newEmail" placeholder="New Email">
-                            <button type="submit" class="submit" align="center">Change Email</button>
-                        </form>
-
-
-
-                           
                         </div>
                     
                     <footer th:insert="fragments/header.html :: footer"> </footer>
