@@ -31,5 +31,8 @@ public interface TopDao extends CrudRepository<Top,Integer> {
     List<Top> topByIdCreator(@Param ("id_creator") Integer id_creator);
 
 
+	@Query(value = "SELECT * FROM Top WHERE id IN (SELECT id_top FROM User_Top)", 
+	nativeQuery = true)
+	List<Top> topWithUserTop(@Param ("id_top") Integer id_top);
 
 }

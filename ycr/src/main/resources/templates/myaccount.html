@@ -26,13 +26,18 @@
                             </div>
                   
                         </div>
-
-
-
-
+                    
                         <div>History</div> 
 
-                        
+                        <div th:if="${not #lists.isEmpty(votedtop)}">
+
+                            <div class="box" th:each="votedtop : ${votedtop}">
+                              <img th:src="@{${votedtop.link}}"/>
+                              <a th:text="'Titre '+${votedtop.titre}" th:href="@{/topresult/__${votedtop.id}__}"></a>
+                              <div th:text="'Points '+${votedtop.point}"></div>
+                            </div>
+                  
+                        </div>
 
 
                         <div>User Information</div>

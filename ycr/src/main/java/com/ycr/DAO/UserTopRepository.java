@@ -11,15 +11,12 @@ import com.ycr.Model.UserTop;
 
 @Repository("userTopRepository")
 public interface UserTopRepository extends JpaRepository<UserTop, Long> {
+
  
- @Query(value = "SELECT * FROM UserTop WHERE id_user = :id_top", 
+ @Query(value = "SELECT * FROM User_Top WHERE id_user = :id_user", 
  nativeQuery = true)
- List<UserTop> topVotedByThisUser(@Param ("id_top") Integer id_top);
- 
- 
- @Query(value = "SELECT * FROM UserTop WHERE id_user = :id_user", 
- nativeQuery = true)
- UserTop userTopByUserId(@Param ("id_user") Integer id_user);
+ List<UserTop> userTopByUserId(@Param ("id_user") Integer id_user);
+
 
  List<UserTop> findAll();
 }

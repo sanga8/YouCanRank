@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import com.ycr.DAO.CategorieDao;
 import com.ycr.DAO.TopDao;
 import com.ycr.DAO.UserRepository;
+import com.ycr.DAO.UserTopRepository;
 import com.ycr.Model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,8 @@ public class MainController {
 	private CategorieDao categorieDao;
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private UserTopRepository usertopRepository;
 
 
 	@GetMapping(value={"","/index","/"})
@@ -131,10 +134,24 @@ public class MainController {
 		
 		List<Top> user_top = topDao.topByIdCreator(user.getId());
 
+		List<UserTop> ut = usertopRepository.userTopByUserId(user.getId());
 
+		List<Top> voted_top = new ArrayList<Top>();
+
+		for (int i=0; i<ut.size();++i){
+			int a = ut.get(i).getId_top();
+			voted_top.add(topDao.findById(a).get());
+		}
+      
+
+
+		model.addAttribute("votedtop",voted_top);
 		model.addAttribute("topcreator",user_top);
 		model.addAttribute("username",user.getUsername());
 		model.addAttribute("usermail",user.getEmail());
+
+
+
         return "myaccount";
 	}
 	
