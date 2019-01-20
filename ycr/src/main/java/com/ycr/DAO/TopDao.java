@@ -35,4 +35,8 @@ public interface TopDao extends CrudRepository<Top,Integer> {
 	nativeQuery = true)
 	List<Top> topWithUserTop(@Param ("id_top") Integer id_top);
 
+	@Modifying
+	@Query(value ="UPDATE Top SET point = point+1 WHERE id = :id", nativeQuery =true)
+	@Transactional
+    void update(@Param ("id") Integer id);
 }

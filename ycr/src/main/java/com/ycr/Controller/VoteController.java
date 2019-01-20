@@ -82,8 +82,11 @@ public class VoteController {
 		createDTO.setTop(top);
 		createDTO.setQuestionList(questionList);
 		
+		topDao.update(id_top);
+
 		model.addAttribute("createDTO",createDTO);
 		model.addAttribute("categorie", categorieDao.findAll());
+
 		return "vote";
 		}
 		else {return "alreadyvoted";}
