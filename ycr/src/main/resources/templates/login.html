@@ -2,7 +2,7 @@
     <html  xmlns:th="http://www.thymeleaf.org">
         
                 <head th:insert="fragments/header.html :: head"> </head>
-                
+                <link rel="stylesheet" href="../form.css" />
                 <body>
                     <header th:insert="fragments/header.html :: header"> </header>
         
@@ -10,24 +10,21 @@
                 
                         <div id="corps" class="no">
                             <!--code here-->
-                            <p class="alert alert-danger" role="alert" th:if="${param.error}">
-                                The username or password is incorrect
-                            </p>
-                            <form th:action="@{/login}"method="post" >
-                                <label for="inputUserName" class="sr-only">UserName</label>
-                                <input type="username" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>
-                                <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 
-                                <button type="submit" class="submit" align="center">Login</button>
-                                
-                                        
-                                            <a href="index">Home</a>
-                                        
-                                        <label>
-                                            <input type="checkbox" name="remember-me" /> Remember me
-                                        </label>
-                            </form>
+                            <div class="login-page">
+                                    <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                                            The username or password is incorrect
+                                    </div>
+                                <div class="form">
+                                  <form class="login-form" th:action="@{/login}"method="post">
+                                    <input type="username" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>                             
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                                    <button type="submit" class="submit" align="center">Login</button>
+                                    <div><label>Remember me</label>
+                                        <input type="checkbox" name="remember-me" /> </div>
+                                  </form>
+                                </div>
+                              </div>
                         </div>
                     
                     <footer th:insert="fragments/header.html :: footer"> </footer>

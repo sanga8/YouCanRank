@@ -15,15 +15,24 @@
                   <img src="../images/icon.png" height="45px"><h1 class="display-4">Catégorie : <span th:text="${actuelle.type}"></span></h1>     
               </div> 
           </div>
-          <div th:if="${not #lists.isEmpty(top)}">
 
-            <div class="box" th:each="top : ${top}">
-              <img th:src="@{${top.link}}"/>
-              <a th:text="'Titre '+${top.titre}" th:href="@{/vote/__${top.id}__}"></a>
-              <div th:text="'Points '+${top.point}"></div>
+          <div id="affichage" th:if="${not #lists.isEmpty(top)}">
+
+              <div th:each="top : ${top}" class="container classement">
+                <div class="numero display-5" th:text="${top.point}"></div>
+                <div class="info">
+                  <div>
+                      <div th:style="'background-image: url('+ ${top.link} + ')'"></div>
+                  </div>
+                  <div><p class="display-5" th:text="'Top '+${top.titre}"></p></div>
+                </div>
+                <div class="action">
+                    <a th:href="@{/topresult/__${top.id}__}" class="far fa-eye"></a>
+                    <a th:href="@{/vote/__${top.id}__}">Vote</a>
+                </div>
+              </div>
+    
             </div>
-
-          </div>
             <!--code here-->
         </div>
 

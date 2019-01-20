@@ -320,3 +320,12 @@ nav .search-container button{
   border-bottom-right-radius: 1rem;
 }
 
+.point{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 10%;
+}
+
+

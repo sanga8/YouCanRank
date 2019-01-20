@@ -5,13 +5,14 @@
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script type="text/javascript">
     var vote=0;
+
+    function notif() {
+          alert("Choisissez "+Math.trunc((document.getElementsByClassName("box").length)/2)+" éléments ");
+        }
     
     
     function doAjax(id){
       var size = document.getElementsByClassName("box").length;
-      console.log(id);
-      console.log(vote);
-      console.log(size);
       vote++;
     
         $.ajax({
@@ -21,7 +22,7 @@
         success:document.getElementById(id).style.visibility='hidden'
         });
 
-      if(vote<size/2){
+      if(Math.trunc(vote<size/2)){
         console.log('pas fini');
       }
       else{
@@ -166,12 +167,6 @@
         
         </div>
       <footer th:insert="fragments/header.html :: footer"> </footer>
-      <script>
-        function notif() {
-          alert("Choisissez vos éléments préférés");
-        }
-        
-      </script>
 
   </body>
 </html>

@@ -3,7 +3,7 @@
 <html  xmlns:th="http://www.thymeleaf.org">
 
         <head th:insert="fragments/header.html :: head"> </head>
-
+        <link rel="stylesheet" href="../form.css" />
             
 
         <body>
@@ -13,24 +13,20 @@
         
                 <div id="corps" class="no">
                     <!--code here-->
-                    <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
-                    </div>
-                
-                        <form class="form-horizontal" role="form" method="POST" th:action="@{/register}" th:object="${user}">
+                    
 
-                        <input type="text" th:field="*{username}" class="form-control" id="username"placeholder="User Name" required autofocus>
-                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" required>
-                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Email" required>
-                        <button type="submit" class="submit" align="center">Register</button>
-        
-                                <td>
-                                    <a href="index">Home</a>
-                                </td>
-                                <td>
-                                    <a href="login">Log-in</a>
-                                </td>
-        
-                       </form>
+                       <div class="login-page">
+                            <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+                                </div>
+                        <div class="form">
+                          <form class="login-form" role="form" method="POST" th:action="@{/register}" th:object="${user}">
+                            <input type="text" th:field="*{username}"  id="username"placeholder="User Name" required autofocus>
+                            <input type="password" th:field="*{password}"  id="password" placeholder="Password" required>
+                            <input type="email" th:field="*{email}"  id="email" placeholder="Email" required>
+                            <button type="submit"  align="center">Register</button>
+                          </form>
+                        </div>
+                      </div>
                 </div>
             
             <footer th:insert="fragments/header.html :: footer"> </footer>

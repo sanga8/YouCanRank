@@ -3,20 +3,36 @@
 
   <head th:insert="fragments/header.html :: head"> </head>
 
-  <body>
+  <body onload="num()">
       <header th:insert="fragments/header.html :: header"> </header>
 
         <div th:insert="fragments/header.html :: div.sidenav"></div>
 
         <div id="corps" class="no">
 
-         <div th:text="*{createDTO.top.titre}"></div>
+      
+         <div class="container">
+          <div class="jumbotron">
+              <img src="../images/icon.png" height="45px"><h1 class="display-4">Résultats : <span th:text="'Top '+*{createDTO.top.titre}"> </span></h1>     
+          </div> 
+        </div>
 
-         <div th:each="question, itemStat : *{createDTO.questionList}">
-            <div><p th:text="${createDTO.questionList[__${itemStat.index}__].point}" ></p></div>
-            <div><p th:text="${createDTO.questionList[__${itemStat.index}__].titre}" ></p></div>
-            <div th:id="${createDTO.questionList[__${itemStat.index}__].id}"><p th:text="${createDTO.questionList[__${itemStat.index}__].link}" ></p></div>
-         </div>
+        <div id="affichage" >
+
+          <div th:each="question, itemStat : *{createDTO.questionList}" class="container classement">
+            <div class="numero display-5">1</div>
+            <div class="info">
+              <div>
+                  <div th:style="'background-image: url('+ ${createDTO.questionList[__${itemStat.index}__].link} + ')'"></div>
+              </div>
+              <div><p class="display-5" th:text="${createDTO.questionList[__${itemStat.index}__].titre}"></p></div>
+            </div>
+            <div class="point display-5" th:text="${createDTO.questionList[__${itemStat.index}__].point}"></div>
+            
+          </div>
+
+        </div>
+
 
 
 
