@@ -31,10 +31,6 @@ body{
     flex-direction: column;
   }
 
-footer{
-      background-color:black;
-      height: 200px;
-  }
 
 #corps{
     flex: 1;

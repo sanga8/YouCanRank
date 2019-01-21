@@ -48,7 +48,7 @@ function hideShow(i) {
   var y = document.getElementById("q"+i);
   console.log(y);
   if (x.style.display === "none") {
-    x.style.display = "block";
+    x.style.display = "flex";
     y.getElementsByTagName('button')[1].textContent="Delete -";
   }
   else  {

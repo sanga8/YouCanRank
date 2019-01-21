@@ -26,7 +26,7 @@ function hndlr(response) {
      else{
       a.getElementsByTagName('input')[1].value=item.link;
      }
-     document.getElementById("corps").style.backgroundImage = "url('"+item.link+"')";
+     document.getElementById("imageR").style.backgroundImage = "url('"+item.link+"')";
      script.parentNode.removeChild( script );
    }
  }
